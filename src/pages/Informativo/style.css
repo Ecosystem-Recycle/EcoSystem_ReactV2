@@ -1,0 +1,439 @@
+#mainInformativo main {
+    max-width: 100%;
+    justify-content: space-between;
+    height: 100%;
+}
+
+
+#mainInformativo h2 {
+    padding-top: 70px;
+
+}
+
+.lixo1 p {
+    font-size: 25px;
+    margin-top: 30px;
+    text-align: justify;
+    width: 1300px;
+}
+
+
+.lixo2 img {
+    padding-top: 50px;
+    width: 400px
+}
+
+#mainInformativo h2 {
+    padding-top: 50px;
+}
+
+.lixo2 p {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin-top: 30px;
+    text-align: justify;
+}
+
+.tutorial {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tutorial h2 {
+    text-align: center;
+}
+
+.video_logistiaca {
+    display: flex;
+    margin-top: 50px;
+    margin: top 0px;
+    justify-content: center;
+    align-self: center;
+}
+
+.logistica {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+.ciclo_logistico h2 {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.ciclo_logistico p {
+    font-size: 25px;
+    text-align: center;
+}
+
+.descartar {
+    display: flex;
+    justify-content: center;
+}
+
+.video_descarte {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.impacto h2 {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: -45px;
+}
+
+.impacto p {
+    display: flex;
+    justify-content: center;
+    text-align: justify;
+    margin-top: 80px;
+    font-size: 25px;
+}
+
+.tabela_periodica {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    margin: 20px;
+
+}
+
+.tabela {
+    display: flex;
+    margin-bottom: 80px;
+    max-width: 100%;
+}
+
+.tabela_periodica p {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    font-size: 25px;
+    text-align: justify;
+
+    line-height: 30px;
+
+    padding: 0 50px;
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+
+
+.banner_fundo {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.banner_fundobanner_fundo {
+    background: url(.banner_fundo);
+    width: 100%;
+    height: 1400px;
+}
+
+.lixo1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 80px;
+}
+
+.lixo2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lixo_filho {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#mainInformativo h2 {
+    font-family: var(--font1);
+    font-size: 50px;
+}
+
+#mainInformativo p {
+    font-family: var(--font2);
+    text-align: center;
+    display: flex;
+}
+
+.simbolo2 {
+    width: 150px;
+    width: 200px;
+}
+
+.video_logistiaca {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    height: 315px;
+}
+
+.logistica p {
+    width: 500px;
+    margin-top: 80px;
+    padding-top: 50px;
+    text-align: justify;
+}
+
+.descartar h2 {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+#mainInformativo h2 {
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font1);
+    font-size: 50px;
+    padding-top: 10px;
+
+}
+
+#mainInformativo h3 {
+    flex-direction: column;
+    text-align: center;
+    font-family: var(--font1);
+    font-size: 50px;
+    padding-top: 10px;
+
+}
+
+#mainInformativo p {
+    text-align: center;
+    padding-top: 20px;
+    font-family: var(--font2);
+
+}
+
+
+.descartar {
+    display: flex;
+    justify-content: center;
+
+    flex-direction: column;
+    margin-top: 100px;
+    padding-top: 50px;
+}
+
+.video_descarte {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 315px;
+}
+
+
+.Texto_Novo {
+    /* text-transform: uppercase; */
+    margin-top: 10px;
+    margin-bottom: 50px;
+    /* background-color: aqua; */
+}
+
+#texto_final {
+
+    margin-bottom: 150px;
+
+}
+
+@media screen and (max-width: 1375px) {
+    .lixo1 p {
+        width: 100%;
+    }
+}
+
+.logistica>img {
+    width: 50%;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+
+    .lixo2 p {
+        display: flex;
+        width: 918px;
+    }
+
+    .lixo1 p {
+        display: flex;
+        width: 918px;
+    }
+
+    .video_logistiaca {
+        display: flex;
+        max-width: 500px;
+    }
+
+    .tabela_periodica p {
+        display: flex;
+        justify-content: center;
+        text-align: justify;
+        width: 918px;
+    }
+
+
+    .logistica img {
+
+        border-radius: 12px;
+    }
+
+    .impacto {
+
+        width: 918px;
+    }
+
+}
+
+
+@media screen and (max-width: 1120px) {
+    .logistica {
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    .logistica>img {
+        width: 70%;
+    }
+
+    .logistica>p {
+        margin: 30px;
+        width: 918px;
+        ;
+    }
+}
+
+@media screen and (max-width: 980px) {
+
+    .lixo2 p {
+        width: 100%;
+    }
+
+    .lixo1 p {
+        width: 100%;
+    }
+
+
+
+    .ciclo_logistico p {
+        width: 100%;
+
+    }
+
+    .tabela_periodica p {
+        width: 100%;
+    }
+
+    .impacto {
+
+        width: 90%;
+    }
+
+}
+
+@media screen and (max-width: 925px) {
+    .descartar h2 {
+        width: 80%;
+        align-self: center;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .tabela_periodica>h3 {
+        width: 500px;
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 700px) {
+
+    .impacto {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .impacto>h2 {
+        width: 565px;
+        align-self: center;
+    }
+
+
+}
+
+@media screen and (max-width: 625px) {
+    .lixo1 img {
+        width: 300px;
+    }
+
+    .lixo2 img {
+
+        width: 300px;
+    }
+
+    #mainInformativo h2 {
+        font-size: 35px;
+    }
+
+    #mainInformativo h2 {
+        font-size: 35px;
+    }
+
+    #mainInformativo h3 {
+        font-size: 35px;
+    }
+
+    .impacto>h2 {
+        width: 100%;
+        background-color: aqua;
+
+    }
+
+    @media screen and (max-width: 500px) {
+        .tabela_periodica>h3 {
+            width: 90%;
+        }
+
+        .lixo1 img {
+            width: 60%;
+        }
+
+        .lixo2 img {
+
+            width: 60%;
+        }
+    }
+
+    @media screen and (max-width: 420px) {
+        .video_logistiaca {
+            width: 90%;
+            height: 280px;
+        }
+
+    }
+}

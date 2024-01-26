@@ -1,0 +1,119 @@
+#mainDoacoesFinalizadas .cards,
+#mainMinhasDoacoes .cards {
+    border: 1px solid rgba(156, 156, 156, 0.20);
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 7px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 370px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5px;
+
+    transition: .35s;
+    cursor: pointer;
+}
+
+#mainDoacoesFinalizadas #imgDoador,
+#mainMinhasDoacoes #imgDoador{
+    width: 100%;
+}
+
+#mainDoacoesFinalizadas #cardDoador,
+#mainMinhasDoacoes #cardDoador{
+    width: 95%;
+}
+
+#mainDoacoesFinalizadas #imgDoador .fotoAnuncio,
+#mainMinhasDoacoes #imgDoador .fotoAnuncio{
+    width: 100%;
+    height: 8rem;
+}
+
+#mainDoacoesFinalizadas #cardDoador .cards img,
+#mainMinhasDoacoes #cardDoador .cards img {
+    width: 101%;
+}
+
+#mainDoacoesFinalizadas .cards h4,
+#mainMinhasDoacoes .cards h4 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+#mainDoacoesFinalizadas #cardDoador .cards p,
+#mainMinhasDoacoes #cardDoador .cards p {
+    font-size: 12px;
+}
+
+#mainDoacoesFinalizadas #cardDoador .WrapperCard,
+#mainMinhasDoacoes #cardDoador .WrapperCard {
+    width: 100%;
+}
+
+#mainDoacoesFinalizadas #cardDoador .Descriocaocards,
+#mainMinhasDoacoes #cardDoador .Descriocaocards {
+    display: flex;
+
+}
+
+#mainDoacoesFinalizadas #cardDoador .Descriocaocards>div,
+#mainMinhasDoacoes #cardDoador .Descriocaocards>div {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 50px 5px;
+}
+
+#mainDoacoesFinalizadas #cardDoador .card_Status,
+#mainMinhasDoacoes #cardDoador .card_Status {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#mainDoacoesFinalizadas #cardDoador .circle_Status,
+#mainMinhasDoacoes #cardDoador .circle_Status {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+#mainDoacoesFinalizadas cardDoador .circle_Yellow,
+#mainMinhasDoacoes #cardDoador .circle_Yellow {
+    background: #F8BD00;
+}
+
+#mainDoacoesFinalizadas #cardDoador .circle_Orange,
+#mainMinhasDoacoes #cardDoador .circle_Orange {
+    background: #ED7016;
+}
+
+#mainDoacoesFinalizadas #cardDoador .circle_Green,
+#mainMinhasDoacoes #cardDoador .circle_Green {
+    background: var(--verde2);
+}
+
+#mainDoacoesFinalizadas #cardDoador .card_Status span,
+#mainMinhasDoacoes #cardDoador .card_Status span {
+    padding-left: 5px;
+    font-weight: 600;
+}
+
+#mainDoacoesFinalizadas #cardDoador span,
+#mainMinhasDoacoes #cardDoador span {
+    font-weight: 600;
+}
+
+#mainDoacoesFinalizadas #cardDoador .iconesCards,
+#mainMinhasDoacoes #cardDoador .iconesCards {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    width: 100%;
+}

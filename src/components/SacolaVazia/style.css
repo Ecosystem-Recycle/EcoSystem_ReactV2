@@ -1,0 +1,60 @@
+.Conteudo_Sacola,
+.Conteudo_Sacola {
+    font-family: var(--font2);
+    font-size: 40px;
+    text-align: center;
+    color: var(--cinza);
+    font-weight: 900;
+    padding: 111px 100px 115px 100px;
+}
+
+.imgCadeado,
+.imgCadeado {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+/* ### Seção @Media ### */
+@media screen and (max-width: 812px) {
+    .Conteudo_Sacola,
+    .Conteudo_Sacola {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        row-gap: 5rem;
+        margin-bottom: 100px;
+        font-size: 35px;
+        padding: 100px 100px 50px 100px;
+    }
+
+    .imgCadeado,
+    .imgCadeado {
+        width: 90%;
+        align-self: center;
+    }
+
+    .imgCadeado>img,
+    .imgCadeado>img {
+        width: 30%;
+    }
+
+}
+
+@media screen and (max-width: 727px) {
+    .Conteudo_Sacola,
+    .Conteudo_Sacola {
+        padding: 0;
+        width: 180px;
+        margin: 60px 0;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .Conteudo_Sacola,
+    .Conteudo_Sacola {
+        width: 80%;
+    }
+}
+
+

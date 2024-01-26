@@ -1,0 +1,268 @@
+#mainConfirmarColeta .conteudo_doacoes {
+    display: grid;
+    column-gap: 3rem;
+    grid-template-columns: minmax(238px, 0.25fr) 1fr;
+    padding: 60px 0;
+}
+
+
+#mainConfirmarColeta .menu_Direito {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+#mainConfirmarColeta .title {
+    padding-bottom: 40px;
+}
+
+#mainConfirmarColeta .title h2 {
+    font-family: var(--font2);
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+#mainConfirmarColeta .title p {
+    font-family: var(--font2);
+    font-size: 1rem;
+    color: var(--cinza);
+}
+
+
+#mainConfirmarColeta .margem_Doacao {
+    border: 1px solid var(--cinza);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-family: var(--font2);
+}
+
+#mainConfirmarColeta .btnVoltar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#mainConfirmarColeta .btnVoltar>a {
+    border-radius: 15px;
+    border: 4px solid var(--roxo);
+    padding: 2px 35px;
+    font-family: var(--font1);
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* #mainConfirmarColeta .dados_doacao1 {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+} */
+
+
+
+/*   */
+
+/* #mainConfirmarColeta .dados_doacao1>img {
+    width: 90%;
+} */
+
+
+/* #mainConfirmarColeta .dados_doacao1 h5 {
+    font-family: var(--font2);
+    font-size: 18px;
+    font-weight: 800;
+    padding-bottom: 15px;
+    max-width: 310px;
+    text-transform: capitalize;
+} */
+
+/* #mainConfirmarColeta .dados_doacao1 img {
+    border-radius: 15px;
+} */
+
+#mainConfirmarColeta .dados_parceiro h4,
+.dados_horario h4,
+.dados_responsavel h4 {
+    font-family: var(--font2);
+    font-size: 21px;
+    font-weight: 600;
+    padding-bottom: 34px;
+}
+
+#mainConfirmarColeta .dados_parceiro p,
+.dados_horario p .dados_responsavel p {
+    font-family: var(--font2);
+    font-size: 13px;
+}
+
+#mainConfirmarColeta .dados_responsavel p {
+    margin-bottom: 150px;
+}
+
+/* #mainConfirmarColeta .dados_doacao1 span {
+    padding-left: 30px;
+    padding-bottom: 10px;
+} */
+
+#mainConfirmarColeta .dados_parceiro {
+    padding-bottom: 30px;
+}
+
+#mainConfirmarColeta .dados_horario {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#mainConfirmarColeta .dados_horario div {
+    width: 30%;
+    max-width: 500px;
+}
+
+#mainConfirmarColeta .dados_horario span,
+.form_obs label {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: var(--font1);
+}
+
+#mainConfirmarColeta .form_obs label {
+    width: 100%;
+}
+
+#mainConfirmarColeta .dados_horario div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#mainConfirmarColeta .form_obs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#mainConfirmarColeta .form_obs textarea {
+
+    border: 1px solid var(--cinza);
+    border-radius: 10px;
+    font-family: var(--font2);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 5px 0 0 10px;
+    resize: vertical;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+#mainConfirmarColeta .btnVoltar {
+    display: flex;
+    justify-content: space-around;
+}
+
+#mainConfirmarColeta .btnVoltar a {
+    color: var(--roxo);
+    font-size: 20px;
+    font-weight: 800;
+    font-family: var(--font1);
+    text-transform: uppercase;
+    padding: 4px 70px;
+}
+
+@media screen and (max-width: 1311px) {
+    /* #mainConfirmarColeta .dados_doacao1>div:nth-child(2) {
+        width: 50%;
+    } */
+
+    #mainConfirmarColeta .Title_Img_Donation>img {
+        width: 90%;
+    }
+
+    /* #mainConfirmarColeta .dados_doacao1 div:nth-child(1) {
+        margin-right: 0;
+    } */
+
+}
+
+@media screen and (max-width: 1072px) {
+    #mainConfirmarColeta .conteudo_doacoes {
+        column-gap: 0;
+    }
+
+    #mainConfirmarColeta .title>h2 {
+        font-size: 28px;
+    }
+
+    #mainConfirmarColeta .btnVoltar>a {
+        width: 190px;
+        padding: 2px 0;
+        text-align: center;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 888px) {
+    /* #mainConfirmarColeta .dados_doacao1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } */
+
+    #mainConfirmarColeta .Title_Img_Donation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mainConfirmarColeta .Title_Img_Donation>h5 {
+        text-align: center;
+    }
+
+    #mainConfirmarColeta .Title_Img_Donation>img {
+        align-self: center;
+        margin: 10px 0 20px 0;
+    }
+
+    /* #mainConfirmarColeta .dados_doacao1>div:nth-child(2) {
+        width: 100%;
+    } */
+}
+
+@media screen and (max-width: 812px) {
+    #mainConfirmarColeta .wrapper {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 701px) {
+    #mainConfirmarColeta .title h2 {
+        font-size: 22px;
+    }
+
+    #mainConfirmarColeta .btnVoltar>a {
+        width: 120px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+
+    #mainConfirmarColeta .conteudo_doacoes {
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+    }
+
+    #mainConfirmarColeta .title {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    #mainConfirmarColeta .title>h2 {
+        margin-bottom: 10px;
+    }
+}

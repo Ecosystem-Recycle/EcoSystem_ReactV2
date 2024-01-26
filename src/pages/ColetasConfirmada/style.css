@@ -1,0 +1,232 @@
+#mainColetasConfirmada .conteudo_doacoes{
+    display: grid;
+    column-gap: 3rem;
+    grid-template-columns: minmax(238px,0.25fr) 1fr;
+    padding: 60px 0;
+}
+
+#mainColetasConfirmada .menu_Direito{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#mainColetasConfirmada .title{
+    padding-bottom: 40px;
+}
+
+#mainColetasConfirmada .title h2{
+    font-family: var(--font2);
+    font-size: 2rem;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+#mainColetasConfirmada .title p{
+    font-family: var(--font2);
+    font-size: 1rem;
+    color: var(--cinza);
+}
+
+
+#mainColetasConfirmada .margem_Doacao{
+    border: 1px solid var(--cinza);
+    /* width: 90%; */
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-family: var(--font2);
+}
+
+#mainColetasConfirmada .btnRetirar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#mainColetasConfirmada .btnRetirar > a{
+    border-radius: 15px;
+    border: 4px solid var(--roxo);
+    padding: 2px 35px;
+    font-family: var(--font1);
+    font-size: 18px;
+    font-weight:800;
+    text-transform: uppercase;
+
+}
+
+#mainColetasConfirmada .dados_doacao1{
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+}
+
+
+
+.dados_doacao1 div:first-child{
+    margin-right: 30px;
+}
+
+.dados_doacao1 > img{
+    width: 90%;
+    /* max-width: 310px; */
+}
+
+
+.dados_doacao1 h5{
+    font-family: var(--font2);
+    font-size: 18px;
+    font-weight: 800;
+    padding-bottom: 15px;
+    max-width: 310px;
+    text-transform: capitalize;
+}
+
+.dados_doacao1 img{
+    border-radius: 15px;
+}
+
+.dados_doacao1 h4, 
+.dados_responsavel h4, 
+.dados_horario h4, 
+.dados_local h4{
+    font-family: var(--font2);
+    font-size: 21px;
+    font-weight: 600;
+    padding-bottom: 34px;
+}
+
+.dados_doacao1 p, 
+.dados_responsavel p, 
+.dados_horario p, 
+.dados_local p{
+    font-family: var(--font2);
+    font-size: 13px;
+}
+
+.dados_doacao1 span{
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+.dados_responsavel, 
+.dados_local{
+    padding-bottom: 30px;
+}
+
+.dados_horario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.dados_horario div{
+    width: 30%;
+    max-width: 500px;
+}
+
+.dados_horario span, .form_obs label {
+    font-size: 15px;
+    font-weight:600 ;
+    font-family: var(--font1);
+}
+
+.form_obs label {
+    width: 100%;
+}
+
+.dados_horario div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#mainColetasConfirmada .btnRetirar{
+    display: flex;
+    justify-content: space-around;
+}
+
+#mainColetasConfirmada .btnRetirar a{
+    color: var(--roxo);
+    font-size: 20;
+    font-weight: 800;
+    font-family: var(--font1);
+    text-transform: uppercase;
+    padding: 4px 70px;
+}
+
+
+@media screen and (max-width: 1131px) {
+    #mainColetasConfirmada .title>h2 {  
+        font-size: 28px;
+        width: 353px;
+    }
+}
+@media screen and (max-width: 1055px) {
+    #mainColetasConfirmada .Conteudo_Doacao{
+        display: flex;
+        flex-direction: column;
+    }
+    #mainColetasConfirmada .dados_doacao1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #mainColetasConfirmada .Title_Img_Donation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #mainColetasConfirmada .Title_Img_Donation>h5{
+        margin-bottom: 15px;
+        text-align: center;
+
+    }
+    #mainColetasConfirmada .Title_Img_Donation>img{
+        margin-bottom: 40px;
+    }
+    #mainColetasConfirmada .dados_doacao1 div:first-child {
+        margin-right: 0;
+    }
+    #mainColetasConfirmada .dados_doacao1 div:nth-child(2){
+        width: 90%;
+        align-self: center;
+    }
+    #mainColetasConfirmada .dados_horario, .dados_local, .dados_responsavel{
+        width: 90%;
+        align-self: center;
+    }
+
+}
+@media screen and (max-width: 690px) {
+    #mainColetasConfirmada .conteudo_doacoes {
+        column-gap: 0;
+    }
+    #mainColetasConfirmada .title>h2 {  
+        font-size: 25px;
+        width: 100%;
+    }
+    #mainColetasConfirmada .title>p { 
+        font-size: 14px;
+    }
+    #mainColetasConfirmada .margem_Doacao {
+        padding: 3rem 0;
+    }
+    #mainColetasConfirmada .Title_Img_Donation>img{
+        width: 85%;
+    }
+}
+@media screen and (max-width: 520px) {
+    #mainColetasConfirmada .conteudo_doacoes{
+        display: flex;
+        flex-direction: column;
+    }
+    #mainColetasConfirmada .title{
+        text-align: center;
+    }
+    #mainColetasConfirmada .btnRetirar>a{
+        padding: 4px 30px;
+    }
+}

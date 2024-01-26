@@ -1,0 +1,103 @@
+/* ####### Estilização do Elemento selecionado no ASIDE ########## */
+
+#AsideColetor .contorno a {
+    color: var(--roxo);
+    font-weight: 900;
+    border: 3px solid var(--roxo);
+    border-radius: 10px;
+    padding: 5px 15px;
+    background: rgba(159, 47, 187, 0.30);
+}
+
+
+aside#AsideColetor ul {
+    list-style-type: none;
+    color: black;
+}
+
+/* ####### ESPAÇO ENTRE SEGUNDO E TERCEIRO LI ########## */
+aside#AsideColetor li:nth-child(2) {
+    padding: 1rem 0;
+    font-size: 12px;
+}
+
+aside#AsideColetor a {
+    color: black;
+    font-family: var(--font2);
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 600;
+    padding: 0 15px;
+}
+
+
+@media screen and (max-width: 1072px) {
+
+    #AsideColetor>ul>li {
+        display: flex;
+        width: 250px;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    aside#AsideColetor a {
+        font-size: 15px;
+    }
+
+    #AsideColetor .contorno a {
+        width: 190px;
+
+    }
+
+    #AsideColetor {
+        width: 202px;
+        column-gap: 0rem;
+    }
+
+}
+
+@media screen and (max-width: 580px) {
+    aside#AsideColetor {
+
+        width: 100%;
+        height: 100%;
+        justify-self: center;
+        text-align: center;
+    }
+
+    #AsideColetor {
+        width: 202px;
+        column-gap: 0rem;
+    }
+    #AsideColetor .contorno a {
+        text-align: start;
+        width: 195px;
+    }
+    #AsideColetor .contorno {
+        width: 195px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+
+    #AsideColetor>ul {
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+        width: 90vw;
+    }
+    
+    #AsideColetor .contorno a {
+        width: 160px;
+        text-align: center;
+    }
+
+}
+@media screen and (max-width: 420px) {
+ 
+    #AsideColetor .contorno a {
+        width: 140px;
+    }
+}

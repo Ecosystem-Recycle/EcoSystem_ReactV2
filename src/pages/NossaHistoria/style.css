@@ -1,0 +1,294 @@
+.banner1 {
+    background-image: url(../../assets/img/Banner1.png);
+    background-size: cover;
+    height: calc(100vh - 80px);
+
+    color: var(--branco);
+    display: flex;
+    justify-content: center;
+
+}
+
+.div_banner1Position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1400px;
+    width: 80%;
+}
+
+.img_logo {
+    margin: 30px 0;
+    max-width: 150px;
+    width: 30%;
+    max-height: 140px;
+    height: 30%;
+}
+
+.div_banner {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.div_banner h2 {
+    font-family: var(--font1);
+    font-size: 34px;
+    padding-bottom: 20px;
+}
+
+.div_banner div {
+    max-width: 660px;
+}
+
+.div_banner p {
+    font-family: var(--font2);
+    font-size: 20px;
+
+}
+
+.div_banner img {
+    max-width: 465px;
+    width: 80%;
+    max-height: 320px;
+    height: 80%;
+    padding-left: 10px;
+    border-radius: 20px 15px 15px 20px;
+}
+
+.banner2 {
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+
+.div_banner2 {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.div_banner2 div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.div_banner2 h3 {
+    font-family: var(--font1);
+    font-weight: bold;
+    font-size: 50px;
+    padding-bottom: 40px;
+    text-transform: capitalize;
+}
+
+
+.img_missao {
+    width: 200px;
+    height: 200px;
+}
+
+.img_visao {
+    width: 250px;
+    height: 200px;
+}
+
+.img_valor {
+    width: 200px;
+    height: 200px;
+}
+
+.div_banner2 p {
+    padding: 30px 15px 10px 15px;
+    font-family: var(--font2);
+    font-size: 18px;
+}
+
+
+
+
+/* ### Seção @Media ### */
+
+
+@media screen and (max-width: 1500px) {
+    .div_banner {
+        justify-content: space-between;
+    }
+}
+
+@media screen and (max-width: 1410px) {
+    .div_banner {
+        align-items: center;
+    }
+
+    .div_banner>div {
+        align-items: center;
+        justify-content: center;
+    }
+
+    .div_banner>div>h2 {
+        margin: auto;
+        padding-bottom: 10px;
+
+    }
+
+    .div_banner>div>p {
+        width: 95%;
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .banner1 {
+        padding-bottom: 0;
+    }
+
+    .div_banner img {
+        height: 450px;
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1072px) {
+    .div_banner {
+        flex-direction: column;
+        flex-wrap: wrap-reverse;
+        width: 100%;
+    }
+
+    .div_banner div {
+        width: 100%;
+        max-width: none;
+        text-align: center;
+
+    }
+
+    .div_banner>div>p {
+        width: 90%;
+        margin: 0 auto;
+
+    }
+
+    .div_banner img {
+        width: 300px;
+        height: 220px;
+        padding: 0;
+        border-radius: 12px;
+        margin: 40px 0;
+    }
+
+    .img_missao {
+        width: 175px;
+        height: 175px;
+    }
+
+    .img_visao {
+        width: 230px;
+        height: 185px;
+    }
+
+    .img_valor {
+        width: 180px;
+        height: 180px;
+    }
+
+    .div_banner2 p {
+        width: 90%;
+    }
+}
+
+
+@media screen and (max-width: 812px) {
+    .div_banner2 {
+        flex-wrap: wrap;
+    }
+
+    .div_banner2 div {
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 666px) {
+    .div_banner img {
+
+        width: 280px;
+        height: 200px;
+
+        margin: 30px 0;
+    }
+
+    .div_banner>div>h2 {
+        font-size: 32px;
+    }
+
+    .div_banner>div>p {
+        font-size: 17px;
+        width: 95%;
+    }
+
+    .div_banner2 h3 {
+        font-size: 45px;
+    }
+}
+
+
+@media screen and (max-width: 580px) {
+
+    .div_banner img {
+        max-height: 300px;
+    }
+}
+
+
+@media screen and (max-width: 454px) {
+    .div_banner>div>h2 {
+        margin-bottom: 30px;
+    }
+
+    .div_banner>div>p {
+        width: 80%;
+    }
+
+    .div_banner img {
+        display: none;
+    }
+
+    .div_banner2 h3 {
+        font-size: 40px;
+    }
+
+    .img_missao {
+        width: 120px;
+        height: 120px;
+    }
+
+    .img_visao {
+        width: 200px;
+        height: 150px;
+    }
+
+    .img_valor {
+        width: 155px;
+        height: 155px;
+    }
+
+}
+
+@media screen and (max-width: 454px) {
+    .div_banner>div>h2 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .div_banner>div>p {
+        font-size: 16px;
+    }
+
+    .div_banner2 p {
+        font-size: 16px;
+    }
+}

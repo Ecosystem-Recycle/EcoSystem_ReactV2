@@ -1,0 +1,21 @@
+#cardCategoria {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+#cardCategoria>p {
+    font-family: var(--font2);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+}
+
+#cardCategoria>p {
+    width: 90%;
+    max-width: 340px;
+    border-radius: 20px;
+}

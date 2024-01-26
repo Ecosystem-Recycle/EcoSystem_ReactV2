@@ -1,0 +1,144 @@
+footer{
+	background: var(--verde1);
+}
+
+.div_footerPosition{
+	height: 300px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: var(--branco);
+	font-family: var(--font1);
+	font-weight: bold;
+}
+
+
+.foot_contats img{
+	margin-right: 15px;
+} 
+
+.foot_contats div:nth-child(-n+2){
+	display: flex;
+	margin-bottom:20px;
+}
+
+.foot_menu{
+	text-transform: uppercase;
+	font-weight: 800;
+}
+
+.foot_menu a{
+    color: var(--branco);
+
+}
+
+.foot_menu li:hover{
+    transform: scale(1.1);
+}
+
+
+.foot_menu ul{
+	list-style-type: none;
+	padding-left: 20px;
+    transition: 0.35s;
+}
+
+.foot_midiasBoletim span{
+	font-size: 24px;
+	font-weight: 800;
+}
+
+.foot_botetim{
+	display: flex;
+	padding: 15px 0;
+}
+
+.foot_botetim input{
+	font-family: var(font--2);
+    font-size: 14px;
+    border: 1px solid #f9f9f9;
+	border-radius: 10px;
+	padding: 4px 40px 4px 10px;
+    margin-right: 15px;
+}
+
+::placeholder {
+    opacity: 60%; 
+  }
+
+.foot_botetim a{
+    color: var(--branco);
+    text-transform: uppercase;
+    transition: .35s;
+}
+.btn_enviar{
+    padding: 0 35px;  
+}
+
+.btn_enviar:hover{
+    background-color: #EAF207;
+    color: black;
+    transform: scale(1.05);
+}
+
+.ico_sociais{
+	max-width: 160px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    transition: .35s;
+    gap: 0.7rem;
+}
+
+.ico_sociais img{
+    width: 40px;
+    height: 40px;
+}
+
+.ico_sociais img:hover{
+    transform: scale(1.1);
+    color: white;
+}
+
+
+
+/* Medias */
+
+@media screen and (max-width: 1072px) {
+    .div_footerPosition{
+        flex-direction: column;
+        justify-content: center;
+        height: fit-content;
+    }
+
+    .div_footerPosition>div{
+        padding: 30px 0;
+    }
+
+}
+
+@media screen and (max-width: 532px) {
+    .foot_midiasBoletim{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .foot_botetim{
+        flex-wrap:wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .foot_botetim input {
+        font-size: 14px;
+        padding: 4px 40px 4px 10px;
+        margin: 0 10px 10px 10px;
+    }
+
+    .foot_contats > div{
+        flex-direction: column;
+        align-items: center;
+    }
+}

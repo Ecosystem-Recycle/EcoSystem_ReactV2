@@ -1,0 +1,67 @@
+#cardColetaSeletor .links_pags {
+    padding-bottom: 0.4rem;
+}
+
+#cardColetaSeletor .links_pags a {
+    border-radius: 9px;
+    padding: 1px 7px;
+    font-family: var(--font1);
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: capitalize;
+}
+
+#cardColetaSeletor .links_pags span {
+    font-size: 22px;
+    font-family: var(--font1);
+    color: var(--cinza);
+}
+
+#cardColetaSeletor .contornoBase {
+    border: 2px solid rgba(156, 156, 156, 0.80);
+    color: var(--cinza);
+}
+
+#cardColetaSeletor .contornoUm {
+    border: 3px solid var(--verde2);
+    color: var(--verde2);
+}
+
+#cardColetaSeletor .contornoDois {
+    border: 3px solid var(--roxo);
+    color: #9319CC;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 1072px) {
+
+    #cardColetaSeletor .links_pags a {
+        font-size: 17px;
+    }
+
+    #cardColetaSeletor .links_pags span {
+        font-size: 19px;
+    }
+
+}
+
+@media screen and (max-width: 812px) {
+
+    #cardColetaSeletor .links_pags a {
+        font-size: 14px;
+        padding: 1px 4px;
+    }
+
+}
+
+@media screen and (max-width: 520px) {
+
+    #cardColetaSeletor .links_pags span {
+        padding: 0 5px;
+    }
+
+    #cardColetaSeletor .links_pags {
+        display: flex;
+        justify-content: center;
+    }
+}

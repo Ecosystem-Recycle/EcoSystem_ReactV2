@@ -1,0 +1,86 @@
+#CardFinalizada .WrapperCard {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+#CardFinalizada .cards {
+    border: 1px solid rgba(156, 156, 156, 0.20);
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 7px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5px;
+}
+
+#CardFinalizada .cards img {
+    width: 100%;
+}
+
+#CardFinalizada .cards h4 {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 9px 0;
+}
+
+#CardFinalizada .cards p {
+    font-size: 12px;
+}
+
+#CardFinalizada .Descricaocards {
+    display: flex;
+    padding-bottom: 30px;
+}
+
+#CardFinalizada .Descricaocards>div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+}
+
+#CardFinalizada .card_Status {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 50px;
+}
+
+#CardFinalizada .circle_Status {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+#CardFinalizada .circle_Yellow {
+    background: #F8BD00;
+}
+
+#CardFinalizada .circle_Orange {
+    background: #ED7016;
+}
+
+#CardFinalizada .circle_Green {
+    background: green;
+}
+
+#CardFinalizada .card_Status p {
+    padding-left: 5px;
+    font-weight: 600;
+    height: fit-content;
+}
+
+#CardFinalizada .iconesCards {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0 15px 0;
+    align-items: center;
+    margin-top: 10px;
+}

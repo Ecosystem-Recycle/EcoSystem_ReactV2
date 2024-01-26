@@ -1,0 +1,141 @@
+#mainMinhasDoacoes .conteudo_doacoes {
+    display: grid;
+    column-gap: 3rem;
+    grid-template-columns: minmax(238px, 0.25fr) 1fr;
+    padding: 60px 0;
+}
+
+
+#mainMinhasDoacoes .menu_Direito {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#mainMinhasDoacoes .title {
+    padding-bottom: 40px;
+}
+
+#mainMinhasDoacoes .title h2 {
+    font-family: var(--font2);
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+#mainMinhasDoacoes .title p {
+    font-family: var(--font2);
+    font-size: 1rem;
+    color: var(--cinza);
+}
+
+#mainMinhasDoacoes .links_pags {
+    padding-bottom: 0.6rem;
+}
+
+
+#mainMinhasDoacoes .links_pags a {
+    border-radius: 9px;
+    border: 2px solid rgba(156, 156, 156, 0.80);
+    padding: 1px 7px;
+    font-family: var(--font1);
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: capitalize;
+    color: var(--cinza);
+    transition: 0.35s;
+}
+
+#mainMinhasDoacoes .links_pags span {
+    font-size: 22px;
+    font-family: var(--font1);
+    color: var(--cinza);
+    padding: 0 5px;
+    
+}
+
+
+#mainMinhasDoacoes .links_pags a:nth-child(1) {
+    border: 2px solid var(--verde2);
+    color: var(--verde2);
+}
+
+#mainMinhasDoacoes .links_pags a:nth-child(3):hover{
+    border: 1px solid var(--roxo);
+    background-color: var(--roxo);
+    color: white;
+    transform: scale(0.5);
+}
+
+#mainMinhasDoacoes .historic_cards {
+    border: 2px solid var(--cinza);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-family: var(--font2);
+}
+
+#mainMinhasDoacoes .Conteudo_Cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    column-gap: 1.2rem;
+    row-gap: 3rem;
+    margin-bottom: 100px;
+
+}
+
+#mainMinhasDoacoes .Conteudo_Cards:hover> :not(:hover) {
+    opacity: .4;
+    transform: scale(0.9);
+}
+
+
+@media screen and (max-width: 1210px) {
+    #mainMinhasDoacoes .cards {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 945px) {
+    #mainMinhasDoacoes .Conteudo_Cards {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 789px) {
+    #mainMinhasDoacoes .links_pags {
+        display: flex;
+        justify-content: center;
+    }
+
+    #mainMinhasDoacoes .links_pags>a {
+        display: flex;
+        width: 150px;
+        text-align: center;
+    }
+
+    #mainMinhasDoacoes .links_pags span {
+        font-size: 40px;
+    }
+
+    #mainMinhasDoacoes .conteudo_doacoes {
+        column-gap: 0;
+    }
+
+    #mainMinhasDoacoes .cards {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    #mainMinhasDoacoes .conteudo_doacoes {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #mainMinhasDoacoes .title {
+        margin-top: 20px;
+        align-self: center;
+    }
+}

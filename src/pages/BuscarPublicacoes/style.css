@@ -1,0 +1,118 @@
+
+
+#mainBuscarPublicacoes .conteudo_doacoes{
+    display: grid;
+    column-gap: 3rem;
+    grid-template-columns: minmax(238px,0.25fr) 1fr;
+    padding: 60px 0;
+}
+
+#mainBuscarPublicacoes .menu_Direito{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#mainBuscarPublicacoes .title{
+    padding-bottom: 40px;
+}
+
+#mainBuscarPublicacoes .title h2{
+    font-family: var(--font2);
+    font-size: 2rem;
+    text-transform: capitalize;
+}
+
+#mainBuscarPublicacoes .title p{
+    font-family: var(--font2);
+    font-size: 1rem;
+    color: var(--cinza);
+}
+
+
+#dois>.conteudoCard>.cardInformacao>h2{
+    font-size: 18px;
+}
+
+#quatro{
+    margin-bottom: 80px;
+}
+
+#mainBuscarPublicacoes .conteudoCard{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+#mainBuscarPublicacoes .cardInformacao>h2{
+    font-family: var(--font1);
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+#mainBuscarPublicacoes .cardInformacao>p{
+    font-family: var(--font2);
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+#mainBuscarPublicacoes .cardInformacao>p:nth-child(5){
+    font-size: 13px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+#mainBuscarPublicacoes .cardInformacao>div{
+    display: flex;
+    font-family: var(--font2);
+    font-size: 10px;
+    margin-bottom: 20px;
+}
+#mainBuscarPublicacoes .cardInformacao>div>div{
+    margin-left: 10px;
+}
+
+
+#mainBuscarPublicacoes .cardAgendar div:nth-child(1){
+    margin-right: 20px;
+}
+
+
+@media screen and (max-width: 880px){
+    #mainBuscarPublicacoes .cardAgendar div:nth-child(1){
+        margin: 0;
+    }
+
+}
+@media screen and (max-width: 700px){
+    #mainBuscarPublicacoes .conteudo_doacoes{
+        gap: 0;
+    }
+    
+    #mainBuscarPublicacoes .title>h2{
+        font-size: 25px;
+    }
+    #mainBuscarPublicacoes .title>p{
+        font-size: 14px;
+        margin-top: 5px;
+    }
+}
+@media screen and (max-width: 520px){
+   #mainBuscarPublicacoes .conteudo_doacoes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   }
+   #mainBuscarPublicacoes .menu_Direito{
+    align-items: center;
+   }
+   #mainBuscarPublicacoes .title>h2{
+    text-align: center;
+    margin-top: 15px;
+   }
+}
+@media screen and (max-width: 393px){
+    #mainBuscarPublicacoes .title>p{
+        text-align: center;
+    }
+}
+

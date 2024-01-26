@@ -1,0 +1,10 @@
+#cardUploadImagem img {
+    justify-content: stretch;
+    align-items: center;
+}
+
+@media screen and (max-width: 778px) {
+    #cardUploadImagem img {
+        width: 100px;
+    }
+}

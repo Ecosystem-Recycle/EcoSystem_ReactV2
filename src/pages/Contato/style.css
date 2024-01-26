@@ -1,0 +1,250 @@
+/* Main */
+
+#mainContato section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.telaContato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+    height: 90%;
+    border-radius: 20px;
+    background-color: rgba(217, 217, 217, 0.5);
+}
+
+.telaContato>h2 {
+    font-family: var(--font1);
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: bolder;
+    margin-top: 30px;
+    border: #000;
+}
+
+.telaContato>a {
+    text-transform: uppercase;
+    font-family: var(--font2);
+    font-size: 13px;
+    color: #9F2FBB;
+    padding: 5px 50px;
+    border-radius: 25px;
+    border: 4px solid #9F2FBB;
+    margin-bottom: 30px;
+}
+
+.cardContato {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+.cardContato>form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    height: 100%;
+}
+
+.cardContato>form>textarea {
+    width: 100%;
+    height: 45px;
+    font-size: 15px;
+    font-family: var(--font2);
+    text-indent: 10px;
+    padding-top: 10px;
+    border: 2px solid #d9d9d9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+
+.cardContato>form>textarea:nth-child(4) {
+    height: 130px;
+}
+
+.mensagemContato {
+    background-color: white;
+    border: 2px solid #d9d9d9;
+    border-radius: 10px;
+    box-shadow: 3px 7px 10px 0px rgba(0, 0, 0, 0.25);
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mensagemContato>p {
+    width: 90%;
+    margin-top: 40px;
+    font-family: var(--font2);
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    align-self: center;
+}
+
+.contatos {
+    font-family: var(--font2);
+    font-size: 15px;
+    width: 80%;
+    margin-bottom: 15px;
+    margin-left: -25px;
+
+}
+
+.email {
+    justify-content: flex-start;
+
+}
+
+.email>img {
+    width: 27px;
+    height: 19px;
+    background-color: #000;
+    color: forestgreen;
+    margin-right: 15px;
+}
+
+.whats {
+    justify-content: flex-start;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.whats>img {
+    width: 22px;
+    height: 20px;
+    background-color: #000;
+    margin-right: 19px;
+}
+
+/* Responsividade da página */
+
+@media screen and (max-width: 1640px) {
+    .cardContato>form {
+        width: 45%;
+    }
+
+    .mensagemContato {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1506px) {
+    .mensagemContato>p {
+        font-size: 14px;
+    }
+
+    .contatos {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1348px) {
+    .telaContato {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 1140px) {
+    .telaContato {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1058px) {
+    .telaContato {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 988px) {
+    .telaContato {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 926px) {
+    .telaContato {
+        width: 85%;
+    }
+}
+
+
+@media screen and (max-width: 872px) {
+    #mainContato section {
+        height: fit-content;
+    }
+
+    #mainContato .telaContato {
+        width: 90%;
+        margin: 35px 0;
+    }
+
+    #mainContato .telaContato>h2 {
+        padding: 30px 0 20px 0;
+        margin: 0;
+    }
+
+    #mainContato .cardContato {
+        flex-direction: column-reverse;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+
+    #mainContato .mensagemContato {
+        margin: 20px 0 40px 0;
+        height: 300px;
+        width: 345px;
+    }
+
+    #idContatoFormulario {
+        height: 300px;
+        width: 345px;
+        margin: 20px 0;
+    }
+
+    #mainContato .telaContato>a {
+        margin: 20px 0;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .mensagemContato {
+        width: 90%;
+    }
+
+    .mensagemContato>p {
+        width: 225px;
+        align-self: flex-start;
+        margin-left: 20px;
+    }
+
+    .adress>p:nth-child(2) {
+        width: 212px;
+
+    }
+
+    #idContatoFormulario {
+        width: 90%;
+    }
+}

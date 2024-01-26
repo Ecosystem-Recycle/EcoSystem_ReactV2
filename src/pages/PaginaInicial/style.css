@@ -1,0 +1,576 @@
+.bannerCarrousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.txtBtn_banner {
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1522px;
+    top: 80px;
+    z-index: 2;
+}
+
+.txtBtn_banner h2 {
+    font-family: var(--font1);
+    color: var(--branco);
+    font-size: 40px;
+    line-height: 50px;
+}
+
+.txtBtn_banner p {
+    font-family: var(--font2);
+    color: var(--branco);
+    font-size: 22px;
+    text-align: center;
+    padding: 80px 200px;
+}
+
+.txtBtn_banner a {
+    font-family: var(--font1);
+    color: var(--branco);
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    padding: 3px 50px;
+}
+
+.txt_chamativo1 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 0 80px 0;
+}
+
+.txt_chamativo1 h3 {
+    font-family: var(--font1);
+    font-size: 28px;
+}
+
+.txt_chamativo1 p {
+    font-family: var(--font2);
+    font-size: 16px;
+    padding: 0 300px;
+}
+
+.sobre_O_lixo {
+    padding-bottom: 160px;
+}
+
+.lixo_conteudo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.lixo_conteudo h5 {
+    font-family: var(--font1);
+    font-size: 25px;
+    font-weight: bolder;
+    padding-top: 200px;
+}
+
+.lixo_conteudo p {
+    font-family: var(--font2);
+    font-size: 18px;
+    padding: 100px 0;
+}
+
+.lixo_conteudo a {
+
+    font-family: var(--font1);
+
+    border: 7px solid #642966;
+    border-radius: 30px;
+    padding: 5px 50px;
+    color: #642966;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.lixo_conteudo img {
+    width: 60%;
+    max-width: 635px;
+}
+
+.lixo_conteudo div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+.doador_parceiro {
+    padding-bottom: 160px;
+}
+
+.conteudo_parceirosDoador {
+    display: flex;
+    justify-content: space-between;
+
+
+    color: var(--branco);
+}
+
+.cad_doador {
+    background-image: url(../../assets/img/home_sejaDoador.png);
+}
+
+.cad_parceiro {
+    background-image: url(../../assets/img/home_sejaparceiro.png);
+}
+
+
+.cad_doador,
+.cad_parceiro {
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    text-align: center;
+
+    max-width: 650px;
+    width: 40%;
+    height: 600px;
+
+    border-radius: 25px;
+}
+
+
+.cad_doador h3,
+.cad_parceiro h3 {
+    font-family: var(--font1);
+    font-size: 35px;
+    text-transform: uppercase;
+    padding-top: 100px;
+}
+
+.cad_doador p,
+.cad_parceiro p {
+    padding: 0 50px 50px 50px;
+    font-family: var(--font2);
+    font-size: 16px;
+}
+
+
+.cad_doador a,
+.cad_parceiro a {
+    background-color: var(--verde1);
+    width: 100%;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: var(--font2);
+    text-transform: uppercase;
+    color: var(--branco);
+
+    padding: 10px 0;
+    border-top: 7px solid var(--branco);
+
+    border-end-end-radius: 25px;
+    border-end-start-radius: 25px;
+}
+
+.Porcentagem_Descarte {
+    background-image: url(../../assets/img/home_bg_porcentagem.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: var(--branco);
+
+    margin-bottom: 160px;
+}
+
+.conteudo_porcentagem {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.conteudo_porcentagem h3 {
+    font-family: var(--font1);
+    font-size: 35px;
+    text-align: end;
+    padding: 15px 0;
+}
+
+.conteudo_porcentagem p {
+    margin-left: 450px;
+    font-family: var(--font2);
+    font-size: 16px;
+}
+
+.conteudo_porcentagem p:nth-child(2) {
+    padding-bottom: 20px;
+}
+
+.conteudo_porcentagem a {
+    color: var(--branco);
+    font-family: var(--font2);
+    font-size: 14px;
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    padding: 10px 0;
+}
+
+.exe_conteudo {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: 180px;
+}
+
+
+
+.exe_conteudo div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    max-width: 600px;
+    width: 45%;
+}
+
+.exe_conteudo img {
+    width: 45%;
+    max-width: 600px;
+}
+
+.exe_conteudo div h4 {
+    font-family: var(--font1);
+    font-size: 28px;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+
+.exe_conteudo div p {
+    font-family: var(--font2);
+    font-size: 18px;
+}
+
+.btn_saibaMais:hover {
+    background-color: yellow;
+}
+
+@media screen and (max-width: 1250px) {
+
+
+    .lixo_conteudo h5 {
+        font-size: 20px;
+    }
+
+    .lixo_conteudo p {
+        font-size: 16px;
+        padding: 30px 0;
+    }
+
+    .lixo_conteudo a {
+        font-size: 15px;
+    }
+
+    .lixo_conteudo img {
+        width: 50%;
+    }
+
+    .conteudo_porcentagem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .conteudo_porcentagem p {
+        margin: 15px 50px;
+        font-size: 14px;
+
+    }
+
+    .conteudo_porcentagem h3 {
+        font-size: 28px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 1072px) {
+    .txt_chamativo1 p {
+        padding: 0 150px;
+    }
+
+    .txt_chamativo1 {
+        padding: 50px 0px 10px 0;
+    }
+
+    .cad_doador,
+    .cad_parceiro {
+        min-width: 370px;
+        margin: 0 10px;
+        height: 530px;
+    }
+
+}
+
+
+/* ############ @Media Responsivo do Banner Carrousel ########### */
+@media screen and (max-width: 878px) {
+    .txtBtn_banner {
+        top: 100px;
+    }
+
+    .txtBtn_banner h2 {
+        font-size: 32px;
+    }
+
+    .txtBtn_banner p {
+        padding: 60px 180px;
+        font-size: 18px;
+    }
+
+    .txtBtn_banner a {
+        font-size: 16px;
+    }
+
+    .conteudo_parceirosDoador {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cad_doador {
+        margin-bottom: 70px;
+    }
+
+    .lixo_conteudo h5 {
+        padding-top: 30px;
+    }
+
+    .txt_chamativo1 p {
+        padding: 30px 20px;
+    }
+
+    .txtBtn_banner p {
+        padding: 30px 60px;
+        font-size: 16px;
+    }
+
+    .cad_doador,
+    .cad_parceiro {
+        height: 450px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .lixo_conteudo div {
+        text-align: center;
+    }
+
+    .lixo_conteudo div a {
+        align-self: center;
+    }
+
+    .lixo_conteudo img {
+        width: 45%;
+        align-self: center;
+    }
+}
+
+
+@media screen and (max-width: 713px) {
+
+    .txtBtn_banner,
+    .lixo_conteudo p {
+        font-size: 17px;
+    }
+
+    .txt_chamativo1 p {
+        font-size: 17px;
+    }
+
+    .exe_conteudo>div>p {
+        font-size: 17px;
+    }
+
+    .lixo_conteudo img {
+        padding: 20px 10px 0 10px;
+        width: 80%;
+    }
+
+    .lixo_conteudo a {
+        text-align: center;
+    }
+
+    .lixo_conteudo {
+        flex-wrap: wrap;
+    }
+
+    .lixo_conteudo div {
+        align-items: center;
+    }
+
+    .exe_conteudo {
+        justify-content: space-around;
+
+    }
+
+    .exe_conteudo img {
+        min-width: 310px;
+        padding-right: 10px;
+    }
+
+    .lixo_conteudo {
+        justify-content: center;
+    }
+
+    .lixo_conteudo h5 {
+        text-align: center;
+    }
+
+    .lixo_conteudo p {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .txtBtn_banner {
+        top: 100px;
+    }
+
+    .txtBtn_banner h2 {
+        font-size: 30px;
+        font-size: 28px;
+    }
+
+    .txtBtn_banner p {
+        padding: 50px 70px;
+        font-size: 18px;
+    }
+
+    .txtBtn_banner a {
+        font-size: 14px;
+    }
+
+    .exe_conteudo img {
+        min-width: 380px;
+        height: 350px;
+        padding-right: 10px;
+    }
+
+    .cad_doador,
+    .cad_parceiro {
+        height: 430px;
+    }
+
+    .cad_doador h3 {
+        padding-bottom: 20px;
+    }
+
+    .exe_conteudo {
+        flex-direction: column-reverse;
+        align-items: center;
+        padding-bottom: 120px;
+    }
+
+    .exe_conteudo div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .exe_conteudo>div>h4 {
+        font-size: 25px;
+    }
+
+    .exe_conteudo>div>p {
+        margin-bottom: 80px;
+        margin: 0 auto 60px auto;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 532px) {
+
+    .cad_doador,
+    .cad_parceiro {
+        min-width: 250px;
+        width: 90%;
+        margin: 50px 0;
+    }
+
+    .txtBtn_banner p {
+        padding: 50px 45px;
+    }
+
+    .cad_doador,
+    .cad_parceiro {
+        width: 80%;
+    }
+
+    .cad_doador>h3,
+    .cad_parceiro>h3 {
+        padding-top: 75px;
+    }
+
+    .exe_conteudo {
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .exe_conteudo div {
+        width: 100%;
+        text-align: center;
+    }
+
+    .exe_conteudo img {
+        margin-bottom: 30px;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .exe_conteudo>div>h4 {
+        width: 90%;
+        margin: 0 auto 0 auto;
+    }
+
+    .exe_conteudo>div>p {
+        width: 80%;
+    }
+
+    .exe_conteudo img {
+        min-width: 280px;
+        height: 260px;
+    }
+
+    .cad_doador,
+    .cad_parceiro {
+        background-color: blueviolet;
+        justify-content: flex-end;
+        height: fit-content;
+
+    }
+
+    .cad_doador>h3,
+    .cad_parceiro>h3 {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .cad_doador p,
+    .cad_parceiro p {
+        padding-bottom: 20px;
+    }
+}

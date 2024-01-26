@@ -1,0 +1,17 @@
+#mainQueroDoarParte1 tbody > tr:nth-child(odd) {
+    background-color: #F2F2F7;
+}
+
+#mainQueroDoarParte1 tr {
+    height: 40px;
+}
+
+#mainQueroDoarParte1 td img {
+    height: 25px;
+    transition: 0.35s;
+    cursor: pointer;
+}
+
+#mainQueroDoarParte1 td img:hover{
+    transform: scale(1.1);
+}

@@ -1,0 +1,261 @@
+.conteudo_doacoes {
+    display: grid;
+    column-gap: 3rem;
+    grid-template-columns: minmax(238px, 0.25fr) 1fr;
+    padding: 60px 0;
+}
+
+
+#agendarColeta .conteudoPublicacoes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+#agendarColeta .headerPublicacoes {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 90%;
+}
+
+#agendarColeta .headerPublicacoes>h2 {
+    font-family: var(--font2);
+    font-size: 20px;
+}
+
+#agendarColeta .headerPublicacoes>p {
+    font-family: var(--font2);
+    font-size: 15px;
+    color: #9C9C9C;
+    margin-bottom: 50px;
+}
+
+#agendarColeta .containerCard {
+    width: 90%;
+    border: 3px solid rgba(156, 156, 156, 0.25);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+
+
+#agendarColeta .cardBottom {
+    width: 90%;
+}
+
+#agendarColeta .cardBottomPt1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+#agendarColeta .cardBottomPt1>div>textarea {
+    overflow: hidden;
+}
+
+#agendarColeta .cardBottomPt1>div:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+
+#agendarColeta .cardBottomPt1>div:nth-child(1)>textarea {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #9C9C9C;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#agendarColeta .cardBottomPt1>div:nth-child(2) {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+#agendarColeta .cardBottomPt1>div:nth-child(2)>textarea {
+    width: 100%;
+    height: 35px;
+    border: 1px solid #9C9C9C;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#agendarColeta .cardBottomPt2 {
+    display: flex;
+    flex-direction: column;
+}
+
+#agendarColeta .cardBottomPt2>textarea {
+    height: 200px;
+    width: 100%;
+    border: 1px solid #9C9C9C;
+    border-radius: 6px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+}
+
+#agendarColeta .containerCard .nextStep{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+#agendarColeta .containerCard .nextStep>a {
+    border-radius: 10px;
+    border: 3px solid #9F2FBB;
+    padding: 5px 100px;
+    text-transform: uppercase;
+    font-family: var(--font2);
+    font-size: 11px;
+    font-weight: bold;
+    color: #9F2FBB;
+}
+
+#agendarColeta .campo-form{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#agendarColeta input{
+    width: 100%;
+    height: 26px;
+    border: 1px solid var(--cinza);
+    border-radius: 7px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding-left: 9px;
+}
+
+#agendarColeta #containerCard h3{
+    margin: 25px 0 20px 0;
+    text-align: start;
+}
+
+#agendarColeta .form_text{
+    width: 90%;
+}
+
+#agendarColeta .btnAgendar{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    margin: 4rem 0 0 0;
+}
+#agendarColeta .btnAgendar button {
+    border: 4px solid var(--roxo);
+    color: var(--roxo);
+    background-color:white;
+    border-radius: 15px;
+    padding: 0 35px;
+    font-family: var(--font1);
+    font-size: 16px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: .35s;
+
+}
+
+#agendarColeta .btnAgendar button:hover
+{
+    transform: scale(1.07);
+    background-color: var(--roxo);
+    color: white;
+}
+
+
+@media screen and (max-width: 1590px) {
+    .containerCard {
+        width: 700px;
+    }
+
+    .conteudoPublicacoes {
+        width: 780px;
+
+
+    }
+
+    #idConteudoPublicacoes {
+        min-width: 780px;
+    }
+
+}
+
+@media screen and (max-width: 1185px) {
+    .conteudo_doacoes {
+        column-gap: 0rem;
+    }
+
+    #agendarColeta>section>div {
+        column-gap: 0;
+
+    }
+    #idConteudoPublicacoes {
+        width: 100%;
+        min-width: 0;
+
+    }
+
+    #agendarColeta>section>div {
+        justify-content: center;
+
+    }
+    #agendarColeta .containerCard .nextStep>a {
+        padding: 5px 50px;
+    }
+}
+
+
+@media screen and (max-width: 997px) {
+    #containerCard {
+        width: 100%;
+    }
+
+    #agendarColeta>section>div {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    #agendarColeta>section>div {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .headerPublicacoes>h2 {
+        align-self: center;
+    }
+
+    .headerPublicacoes>p {
+        align-self: center;
+    }
+    #agendarColeta .containerCard .nextStep>a {
+        padding: 5px 25px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    #agendarColeta .conteudo_doacoes {
+        grid-template-rows: none;
+    }
+  
+}
+
+@media screen and (max-width: 520px) {
+
+    #agendarColeta .conteudo_doacoes {
+        display: flex;
+        flex-direction: column;
+    }
+
+}

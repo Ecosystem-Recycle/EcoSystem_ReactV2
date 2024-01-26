@@ -1,0 +1,85 @@
+#CardColetaAtiva .WrapperCard {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+}
+
+#CardColetaAtiva .cards {
+    border: 1px solid rgba(156, 156, 156, 0.20);
+    border-radius: 10px 10px 0px 0px;
+    box-shadow: 7px 4px 4px 2px rgba(0, 0, 0, 0.25);
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 5px;
+}
+
+#CardColetaAtiva .cards img {
+    width: 100%;
+    max-width: 350px; 
+    max-height: 200px;
+}
+
+#CardColetaAtiva .cards h4 {
+    font-size: 22px;
+    font-weight: 700;
+    text-transform: capitalize;
+    text-align: center;
+    padding: 9px 0;
+}
+
+#CardColetaAtiva .cards p {
+    font-size: 12px;
+}
+
+#CardColetaAtiva .Descricaocards {
+    display: flex;
+    padding-bottom: 30px;
+}
+
+#CardColetaAtiva .Descricaocards>div {
+    display: flex;
+    flex-direction: column;
+    padding-left: 5px;
+}
+
+#CardColetaAtiva .card_Status {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#CardColetaAtiva .circle_Status {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    border-radius: 10px;
+}
+
+#CardColetaAtiva .circle_Yellow {
+    background: #F8BD00;
+}
+
+#CardColetaAtiva .circle_Orange {
+    background: #ED7016;
+}
+
+#CardColetaAtiva .circle_Green {
+    background: var(--verde2);
+}
+
+#CardColetaAtiva .card_Status span {
+    padding-left: 5px;
+    font-weight: 600;
+}
+
+#CardColetaAtiva .iconesCards {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0 15px 0;
+    align-items: center;
+    margin-top: 10px;
+}

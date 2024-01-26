@@ -1,0 +1,65 @@
+.dados_doacao1 {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+}
+
+.dados_doacao1 div:first-child {
+    margin-right: 30px;
+}
+
+.dados_doacao1>img {
+    width: 90%;
+}
+
+.dados_doacao1 h5 {
+    font-family: var(--font2);
+    font-size: 18px;
+    font-weight: 800;
+    padding-bottom: 15px;
+    max-width: 310px;
+    text-transform: capitalize;
+}
+
+.dados_doacao1 img {
+    border-radius: 15px;
+}
+
+.dados_doacao1 h4{
+    font-family: var(--font2);
+    font-size: 21px;
+    font-weight: 600;
+    padding-bottom: 34px;
+}
+
+.dados_doacao1 p{
+    font-family: var(--font2);
+    font-size: 13px;
+}
+.dados_doacao1 span {
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+@media screen and (max-width: 1311px) {
+    .dados_doacao1>div:nth-child(2) {
+        width: 50%;
+    }
+
+    .dados_doacao1 div:nth-child(1) {
+        margin-right: 0;
+    }
+
+}
+
+@media screen and (max-width: 888px) {
+    .dados_doacao1 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dados_doacao1>div:nth-child(2) {
+        width: 100%;
+    }
+}

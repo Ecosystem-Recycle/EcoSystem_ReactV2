@@ -1,0 +1,78 @@
+
+.cardAgendar{
+    display:flex;
+    border: 10px;
+    border-radius: 10px;
+    box-shadow: 4px 7px 4px 2px rgba(0, 0, 0, 0.25); 
+    width: 90%;
+    /* margin-top: 20px; */
+    margin-bottom: 50px;
+}
+
+#mainBuscarPublicacoes .cardAgendar span{
+    font-weight: bold;
+}
+
+.cardAgendar>div>img{
+    /* width: 100%; */
+    width: 206px;
+    height: 144px;
+    border-radius: 5px;
+} 
+
+ .cardAgendar img {
+    width: 100%;
+    height: 100%;
+    border-radius:10px 0 0 10px;
+}
+
+.conteudoCard > button{
+    align-self: flex-end;
+    border-radius:30px;
+    border: 3px solid var(--roxo); 
+    padding: 3px 12px;
+    text-transform: uppercase;
+    font-family: var(--font2);
+    font-size: 11px;
+    font-weight: bold;
+    color: #9F2FBB;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    transition: .35s
+}
+
+.conteudoCard > button:hover{
+    background: var(--roxo);
+    color: var(--branco);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 1030px) {
+    .conteudoCard{
+        flex-direction: column;
+    }
+    .conteudoCard>a{
+        align-self: self-start;
+        margin-top: 20px;
+        width: 120px;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 880px){
+    .cardAgendar{
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+    }
+    .conteudoCard{
+        align-items: center;
+
+    }
+    .conteudoCard>a{
+        align-self: center;
+    }
+
+}
