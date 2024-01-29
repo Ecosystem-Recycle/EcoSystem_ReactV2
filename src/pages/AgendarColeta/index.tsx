@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import './style.css';
 
-import Aside from '../../components/Aside';
+
 import emailjs from '@emailjs/browser';
+import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import CardAgendarColeta from '../../components/CardAgendarColeta';
+import Aside from '../../components/Aside';
 import secureLocalStorage from 'react-secure-storage';
 import api from '../../utils/api';
 
@@ -52,20 +54,27 @@ function AgendarColeta() {
                     anuncioInfo.usuario_doador.email,
                     anuncioInfo.titulo,
                     data,
-                    anuncioInfo.periodo
+                    anuncioInfo.periodo,
+                    anuncioInfo.usuario_doador.telefone.substr(anuncioInfo.usuario_doador.telefone.length - 4)
                 )
 
-                secureLocalStorage.removeItem("anuncioInfo")
-                alert("Coleta Agendada com Sucesso")
-                navigate("/coletasagendadas")
-                navigate(0)
+                
+                Swal.fire("Sucesso!", "Coleta Agendada com Sucesso", "success");
+                setTimeout(() => {
+                    navigate("/coletasagendadas");
+                    navigate(0);
+                    secureLocalStorage.removeItem("anuncioInfo")
+                }, 3000);
+               
+             
+                
 
            }).catch( (error:any) => {
                console.log(error)
            })
     }
 
-    function enviarEmail(_nomeDoador:string, _emailDoador:string, _tituloAnuncio:string,_dataAnuncio:string,_periodoAnuncio:string){
+    function enviarEmail(_nomeDoador:string, _emailDoador:string, _tituloAnuncio:string,_dataAnuncio:string,_periodoAnuncio:string,_codDoador:string){
         //Objeto com as variáveis do template de Email
         var templateParams = {
             nome_doador: _nomeDoador,
@@ -74,7 +83,8 @@ function AgendarColeta() {
             data_anuncio: _dataAnuncio,
             periodo_anuncio: _periodoAnuncio,
             nome_coletor: userId.nome,
-            email_coletor: userId.email
+            email_coletor: userId.email,
+            seguranca_codigo: _codDoador
           };
         //Funcao para enviar o EmaiJS passando o Serviço, nomeTemplate, parametros e chavePublica
         emailjs.send('service_0en0u75', 'template_nova_coleta', templateParams, 'YZMWXN82GCbwyOvsW')
@@ -170,7 +180,7 @@ function AgendarColeta() {
                                                 name='periodo'
                                                 id='periodo'
                                                 value={ anuncioInfo.periodo }
-                                                onChange={(event) => {setHorario(event.target.value) } }
+                                                onChange={(event) => { setHorario(event.target.value) } }
                                                 required
                                                 disabled
                                             />

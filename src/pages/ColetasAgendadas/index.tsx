@@ -31,6 +31,7 @@ function AgendarColeta() {
     }, [] )
     
     useEffect(() => {
+        console.log(coletaLista)
       }, [coletaLista]); 
 
 
@@ -101,9 +102,7 @@ function AgendarColeta() {
                 <h1>página coletas agendadas ecosystem &amp; recycle</h1>
                 <section>
                     <div className="conteudo_doacoes wrapper">
-                        {/* Abaixo está sendo chamado o  componente aside */}
                         <Aside idSeletor={2} />
-
                         <div className="menu_Direito">
                             <div className="title">
                                 <h2>coletas agendadas</h2>
@@ -123,11 +122,20 @@ function AgendarColeta() {
                                                         conteudoCardData={ coleta.anuncio.data_cadastro }
                                                         conteudoCardQuantidade={ somarProdutos(filtrarProdutos(coleta)) }
                                                         conteudoCardOwner = { coleta.anuncio.usuario_doador.nome.split(" ")[0] }
+                                                        codTelefone = { coleta.anuncio.usuario_doador.telefone.substr(coleta.anuncio.usuario_doador.telefone.length - 4) }
+                                                        disponibilidade = { coleta.anuncio.disponibilidade }
+                                                        periodo = { coleta.anuncio.periodo }
                                                         descricoes={ filtrarProdutos(coleta) }
+                                                        dataRetirada = { coleta.disponibilidade }
                                                         cidade={ coleta.anuncio.usuario_doador.endereco.cidade }
                                                         estado={ coleta.anuncio.usuario_doador.endereco.estado }
+                                                        rua={ coleta.anuncio.usuario_doador.endereco.logradouro }
+                                                        numero={ coleta.anuncio.usuario_doador.endereco.numero }
+                                                        cep={ coleta.anuncio.usuario_doador.endereco.cep }
                                                         corStatus={ renderColor(coleta.anuncio.tipo_status_anuncio.nome) }
                                                         status={ coleta.anuncio.tipo_status_anuncio.nome }
+                                                        idColeta={ coleta.id }
+                                                        idAnuncio={ coleta.anuncio.id }
                                                         
                                         />
                                                 </div>

@@ -3,6 +3,7 @@ import "./style.css";
 import AsideDoador from "../../components/AsideDoador";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 import api from "../../utils/api";
 import secureLocalStorage from "react-secure-storage";
 
@@ -75,9 +76,11 @@ function EditarPerfilDoador() {
             .then((responseEndereco: any) => {
                 localStorage.removeItem("userId");
                 api.get("usuarios/email/" + email).then((responseEmail: any)=>{
-                    secureLocalStorage.setItem("userId", responseEmail.data);
-                    alert("Dados Alterados Com Sucesso");
-                    navigate(0)
+                  secureLocalStorage.setItem("userId", responseEmail.data);
+                  Swal.fire("Sucesso!", "Dados Alterados com Sucesso", "info");
+                  setTimeout(() => {
+                  navigate(0);
+                  }, 3000);
                 })      
 
             });

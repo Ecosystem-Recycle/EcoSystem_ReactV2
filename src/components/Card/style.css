@@ -83,3 +83,9 @@
     align-items: center;
     margin-top: 10px;
 }
+
+#CardColetaAtiva .iconesCards button{
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}

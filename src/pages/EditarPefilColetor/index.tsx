@@ -2,6 +2,7 @@ import './style.css'
 
 import Aside from '../../components/Aside'
 import { useState, useEffect } from 'react';
+import Swal from 'sweetalert2'
 import api from '../../utils/api';
 import { useNavigate } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
@@ -74,9 +75,11 @@ function EditarPefilColetor() {
             .then((responseEndereco: any) => {
                 localStorage.removeItem("userId");
                 api.get("usuarios/email/" + email).then((responseEmail: any)=>{
-                    secureLocalStorage.setItem("userId", responseEmail.data);
-                    alert("Dados Alterados Com Sucesso");
-                    navigate(0)
+                  secureLocalStorage.setItem("userId", responseEmail.data);
+                  Swal.fire("Sucesso!", "Dados Alterados com Sucesso", "info");
+                  setTimeout(() => {
+                  navigate(0);
+                  }, 3000);
                 })      
 
             });

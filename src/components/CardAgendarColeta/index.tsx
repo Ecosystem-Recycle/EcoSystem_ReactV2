@@ -1,6 +1,5 @@
 // import { useState } from 'react'
 import './style.css'
-import image from "../../assets/img/image 12.png"
 
 export default function CardAgendarColeta(props:any) {
     function FormataStringData(data:string):string {

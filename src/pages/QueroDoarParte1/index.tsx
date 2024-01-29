@@ -3,6 +3,7 @@ import './style.css'
 import api from "../../utils/api"
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser';
 import secureLocalStorage from 'react-secure-storage'
 
@@ -154,8 +155,10 @@ function QueroDoarParte1() {
       
       limparCampos('anuncio');
       limparLista();
-      alert('Anuncio Registrado com sucesso')
-      navigate(0);
+      Swal.fire("Sucesso!", "Anuncio Registrado com sucesso", "success");
+      setTimeout(() => {
+        navigate(0);
+      }, 3000);
       
       }
   
