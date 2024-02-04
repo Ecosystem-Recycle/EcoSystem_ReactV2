@@ -19,7 +19,7 @@ function Footer() {
               src={icoEmail}
               alt="Icone de uma carta com um @, simbolizando o email"
             />
-            <p>contato@ecosystemrecycle.com.br</p>
+            <p>ecosytemrecycle@gmail.com</p>
           </div>
           <div>
             <img src={icoWhats} alt="Icone do whatsapp" />
