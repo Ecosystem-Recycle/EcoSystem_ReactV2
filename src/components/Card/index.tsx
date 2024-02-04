@@ -76,10 +76,13 @@ export default function Card(props: any) {
         <div id='CardColetaAtiva'>
             <div className="cards">
                 <h4>{ props.tituloCard }</h4>
+                <div className="fotoAnuncio">
                 <img
                     src={"http://localhost:8090/img/" + props.imgBackground }
                     alt={"Imagem "+ props.index +" da Galeria de fotos"} 
                 />
+                </div>
+                
                 <div className="WrapperCard">
                     <p>Data de publicação: { FormataStringData(props.conteudoCardData) } </p>
                     <p>Quantidade: { props.conteudoCardQuantidade }</p>

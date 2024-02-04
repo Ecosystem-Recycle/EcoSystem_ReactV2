@@ -1,32 +1,3 @@
-
-#mainColetasFinalizadas .link_menu_direito{
-    padding-bottom: 0.4rem;
-}
-
-#mainColetasFinalizadas .link_menu_direito a {
-
-    border-radius: 9px;
-    border: 2px solid rgba(156, 156, 156, 0.80);
-    padding: 1px 7px;
-    font-family: var(--font1);
-    font-size: 20px;
-    font-weight: 900;
-    text-transform: capitalize;
-    color: var(--cinza);
-}
-
-#mainColetasFinalizadas .link_menu_direito span {
-    font-size: 22px;
-    font-family: var(--font1);
-    color: var(--cinza);
-}
-
-
-/* #mainColetasFinalizadas .link_menu_direito>a:nth-child(3) {
-    border: 3px solid var(--roxo);
-    color: #9319CC;
-} */
-
 #mainColetasFinalizadas .conteudo_doacoes{
     display: grid;
     column-gap: 3rem;
@@ -58,7 +29,13 @@
     color: var(--cinza);
 }
 
-
+#mainColetasFinalizadas .historic_cards {
+    border: 2px solid var(--cinza);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    font-family: var(--font2);
+}
 
 #mainColetasFinalizadas .margem_Conteudo{
     border: 1px solid var(--cinza);
@@ -84,14 +61,14 @@
     text-transform: uppercase;
 }
 
-#mainColetasFinalizadas .Conteudo{
-
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        justify-items: center;
-        row-gap: 5rem;
-        margin-bottom: 100px;
-    }
+#mainColetasFinalizadas .Conteudo_Cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    column-gap: 1.2rem;
+    row-gap: 3rem;
+    margin-bottom: 100px;
+}
 
 #mainColetasFinalizadas .menu_direito p {
     color: #9c9c9c;
@@ -163,25 +140,15 @@
         width: 95%;
     }
 
-    #mainColetasAgendadas .Conteudo {
-        display: grid;
-        grid-template-columns: 1fr;
-        justify-items: center;
-        row-gap: 5rem;
-        margin-bottom: 100px;
-    }
-    /* #mainColetasFinalizadas .nada_consta>img {
-        width: 90%;
-        align-self: center;
-    } */
+    #mainColetasFinalizadas .Conteudo_Cards, 
+    #mainColetasAgendadas .Conteudo_Cards {
+        grid-template-columns: none;
+    } 
 }
 
 
 @media screen and (max-width: 700px) {
 
-    /* #mainColetasFinalizadas .nada_consta>img {
-        width: 90%;
-    } */
     #mainColetasFinalizadas .conteudo_doacoes{
         column-gap: 0;
     }

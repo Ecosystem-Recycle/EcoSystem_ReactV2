@@ -5,7 +5,7 @@ import secureLocalStorage from 'react-secure-storage'
 import api from '../../utils/api'
 
 import Aside from "../../components/Aside"
-import CardFinalizada from '../../components/CardFinalizados'
+// import CardFinalizada from '../../components/CardFinalizados'
 import CardColetaSeletor from '../../components/CardColetasSeletor';
 import Card from '../../components/Card'
 import SacolaVazia from '../../components/SacolaVazia'
@@ -95,7 +95,7 @@ function ColetasFinalizadas() {
 
     return (
         <>
-            <main id='mainColetasAgendadas'>
+            <main id='mainColetasFinalizadas'>
                 <h1>página coletas agendadas ecosystem &amp; recycle</h1>
                 <section>
                     <div className="conteudo_doacoes wrapper">
@@ -108,7 +108,7 @@ function ColetasFinalizadas() {
                                 <p>Visualize o histórico e agendamentos ativos aqui</p>
                             </div>
                             <div>
-                                <CardColetaSeletor idSeletor={1}/>
+                                <CardColetaSeletor idSeletor={2}/>
                                 <div className="historic_cards">
                                 <div className={ coletaLista.length ? "Conteudo_Cards" : ""}>
                                         {
