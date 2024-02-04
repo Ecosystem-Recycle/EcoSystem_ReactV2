@@ -120,16 +120,19 @@ export default function Card(props: any) {
                             />
                         </button>
 
+                        {   props.status == "Coleta Finalizada" ?
+                            <></>
+                            : <button 
+                                type="button"
+                                onClick={ () => deletarColeta() }
+                            >
+                                <img
+                                    src={ico_delete}
+                                    alt="Icone de deletar"
+                                />
+                            </button>
+                        }
                         
-                        <button 
-                            type="button"
-                            onClick={ () => deletarColeta() }
-                        >
-                            <img
-                                src={ico_delete}
-                                alt="Icone de deletar"
-                            />
-                        </button>
                     </div>
                 </div>
             </div>
@@ -140,6 +143,7 @@ export default function Card(props: any) {
             
                 <ModalConfirmarColeta 
                     isOpen={ abrirModal } 
+                    status={props.status}
                     idAnuncio={ props.idAnuncio }
                     idColeta={ props.idColeta }
                     imagemColeta={ props.imgBackground }

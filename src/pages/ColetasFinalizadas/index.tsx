@@ -122,11 +122,16 @@ function ColetasFinalizadas() {
                                                         conteudoCardQuantidade={ somarProdutos(filtrarProdutos(coleta)) }
                                                         conteudoCardOwner = { coleta.anuncio.usuario_doador.nome.split(" ")[0] }
                                                         descricoes={ filtrarProdutos(coleta) }
+                                                        dataRetirada = { coleta.disponibilidade }
                                                         cidade={ coleta.anuncio.usuario_doador.endereco.cidade }
                                                         estado={ coleta.anuncio.usuario_doador.endereco.estado }
                                                         corStatus={ renderColor(coleta.anuncio.tipo_status_anuncio.nome) }
                                                         status={ coleta.anuncio.tipo_status_anuncio.nome }
-                                                        
+                                                        rua={ coleta.anuncio.usuario_doador.endereco.logradouro }
+                                                        numero={ coleta.anuncio.usuario_doador.endereco.numero }
+                                                        cep={ coleta.anuncio.usuario_doador.endereco.cep }
+                                                        disponibilidade = { coleta.anuncio.disponibilidade }
+                                                        periodo = { coleta.anuncio.periodo }
                                         />
                                                 </div>
                                             })

@@ -149,15 +149,17 @@ function atualizarStatusColeta(idColeta: string){
             </div>
           </div>
           <div className="btnRetirar">
-            {/* <a href="#">
-              Retirar Material
-            </a> */}
-            <button 
-              type="button"
-              onClick={() => { finalizarColeta( props.codTelefone, props.idAnuncio, props.idColeta ) }}
-            >
-              Retirar Material
-            </button>
+           {  
+              props.status =="Coleta Finalizada" ?
+              null
+              : <button 
+                  type="button"
+                  onClick={() => { finalizarColeta( props.codTelefone, props.idAnuncio, props.idColeta ) }}
+                >
+                  Retirar Material
+                </button>       
+           }
+            
           </div>
         </div>
       </div>
