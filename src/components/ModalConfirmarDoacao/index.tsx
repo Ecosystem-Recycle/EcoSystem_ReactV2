@@ -1,12 +1,14 @@
 
 import './style.css'
 
-import Swal from 'sweetalert2'
-import api from '../../utils/api';
 
 import ico_fechar from '../../assets/img/exit.svg'
+import { useEffect, useState } from 'react';
+import api from '../../utils/api';
 
 function ModalConfirmarDoacao(props:any) {
+
+  const [coletaLista, setColetaLista] = useState<any>({});
   function FormataStringData(data:string):string {
         //formata a data do MYSQL -> (1900-12-25) para (25/12/1900)
         let ano  = data.split("-")[0];
@@ -16,6 +18,29 @@ function ModalConfirmarDoacao(props:any) {
         return dia + '/' + ("0"+mes).slice(-2) + '/' + ("0"+ano).slice(-2);
         // Utilizo o .slice(-2) para garantir o formato com 2 digitos.
   }
+
+  useEffect( () => {
+      buscarPublicacoes()
+}, [] )
+
+useEffect(() => {
+    console.log(coletaLista)
+  }, [coletaLista]); 
+
+  function buscarPublicacoes(){
+    //GET todos Anuncios
+    api.get("/coleta").then((responseColetas: any)=>{          
+            let teste:object = {}
+            responseColetas.data.forEach((coleta:any) => {
+                
+                if((coleta.anuncio.id == props.idAnuncio) ){
+                  teste = coleta
+                  setColetaLista(teste)
+                }
+            });
+            
+        })
+}
 
 
   if( props.isOpen ){
@@ -44,7 +69,7 @@ function ModalConfirmarDoacao(props:any) {
                 />
               </div>
               <div>
-                <h4>Dados da Retirada</h4>
+                <h4>Dados do Anúncio</h4>
                 <p><b>Data de publicação:</b> { FormataStringData(props.data) }</p>
                 <p><b>Quantidade:</b> { props.quantidade }</p>
                 <p><b>Responsável:</b> {props.responsavel}</p>
@@ -76,17 +101,35 @@ function ModalConfirmarDoacao(props:any) {
                 <h5> { props.status } </h5>
               </div>
             </div>
-            <div className="dados_local">
-              <h4>Localização</h4>
-              <p>
-                   { props.rua }, N° { props.numero } - { props.cidade } - { props.estado }
-              </p>
-              <p>CEP: {props.cep ? props.cep : "12345-678"}</p>
-            </div>
-            <div className="dados_responsavel">
-              <h4>Responsável:</h4>
-              <p>{ props.responsavel }</p>
-            </div>
+            {
+              props.status == "Coleta Finalizada" || props.status == "Coleta Agendada" 
+              ? <div className="dados_local">
+                  <h4>Horario da retirada:</h4>
+                  <p>
+                    
+                  </p>
+                  <p>
+                     <b>Data: </b>{ coletaLista.disponibilidade }
+                  </p>
+                  <p>
+                     <b>Período: </b>{ props.periodo }
+                  </p>
+                </div>
+              : <>
+                  <div className="dados_local">
+                    <h4>Localização</h4>
+                    <p>
+                        { props.rua }, N° { props.numero } - { props.cidade } - { props.estado }
+                    </p>
+                    <p>CEP: {props.cep ? props.cep : "12345-678"}</p>
+                    </div>
+                    <div className="dados_responsavel">
+                    <h4>Responsável:</h4>
+                    <p>{ props.responsavel }</p>
+                  </div>
+              </>
+            }
+            
           </div>
         </div>
       </div>

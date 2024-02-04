@@ -123,9 +123,18 @@ function DoacoesFinalizadas() {
                                                         imagem={ anuncio.url_imagem }
                                                         dataPubliq={ anuncio.data_cadastro }
                                                         totalItens={ somarProdutos(filtrarProdutos(anuncio)) }
+                                                        conteudoCardOwner = { anuncio.usuario_doador.nome.split(" ")[0] }
+                                                        disponibilidade = { anuncio.disponibilidade }
+                                                        periodo = { anuncio.periodo }
                                                         descricoes={ filtrarProdutos(anuncio) }
+                                                        cidade={ anuncio.usuario_doador.endereco.cidade }
+                                                        estado={ anuncio.usuario_doador.endereco.estado }
+                                                        rua={ anuncio.usuario_doador.endereco.logradouro }
+                                                        numero={ anuncio.usuario_doador.endereco.numero }
+                                                        cep={ anuncio.usuario_doador.endereco.cep }
                                                         corStatus={ renderColor(anuncio.tipo_status_anuncio.nome) }
                                                         status={ anuncio.tipo_status_anuncio.nome }
+                                                        idAnuncio={anuncio.id}
                                                     />
                                                 </div>
                                             })

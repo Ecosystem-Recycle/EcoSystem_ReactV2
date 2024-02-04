@@ -17,21 +17,24 @@ function CardDoador(props:any) {
     }
 
     function deletarAnuncio(){
-        
-        
+        let textoPergunta:string = "";
+        if(props.status == "Coleta Agendada"){
+                textoPergunta = "Você possui uma coleta agendada para este anúncio, deseja realmente Exclui-lo???";
+        }else{
+            textoPergunta = "Tem certeza que deseja excluir esse anúncio";
+        }   
         Swal.fire({
             title: "Atenção!",
             showDenyButton: true,
             denyButtonText: `Não Excluir`,
             showCancelButton: true,
             confirmButtonText: "Excluir",
-            text: "Deseja Excluir Esse Anuncio?", 
+            text: textoPergunta, 
             icon:"warning",
             confirmButtonColor: "#045328",
           }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                // atualizarStatusAnuncio();
                 // deletarProdutosAnuncio();
                 api.delete("anuncio/" + props.idAnuncio).then( (responseStatus:any) => {
                     Swal.fire("Sucesso!", "Anuncio Excluido com sucesso", "success");
