@@ -1,14 +1,74 @@
 import './style.css'
-import imgIconeEditar from '../../assets/img/ico_edit.svg'
-import imgIconeVisualizar from '../../assets/img/ico_eye.svg'
-import imgIconeDeletar from '../../assets/img/ico_delete.svg'
-import { Link } from 'react-router-dom';
+import ico_eye from '../../assets/img/ico_eye.svg'
+import ico_delete from '../../assets/img/ico_delete.svg'
+import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import ModalConfirmarDoacao from '../ModalConfirmarDoacao';
+import Swal from 'sweetalert2';
+import api from '../../utils/api';
 
 function CardDoador(props:any) {
 
-    function msgExcluirDoacao():void{
-        alert('Doação deletada do sistema com sucesso!');
-    };
+    const [abrirModal, setAbrirModal] = useState<boolean>(false);
+    const navigate = useNavigate()
+    
+    function visualizarAnuncio(){
+        setAbrirModal(!abrirModal);
+    }
+
+    function deletarAnuncio(){
+        
+        
+        Swal.fire({
+            title: "Atenção!",
+            showDenyButton: true,
+            denyButtonText: `Não Excluir`,
+            showCancelButton: true,
+            confirmButtonText: "Excluir",
+            text: "Deseja Excluir Esse Anuncio?", 
+            icon:"warning",
+            confirmButtonColor: "#045328",
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                // atualizarStatusAnuncio();
+                // deletarProdutosAnuncio();
+                api.delete("anuncio/" + props.idAnuncio).then( (responseStatus:any) => {
+                    Swal.fire("Sucesso!", "Anuncio Excluido com sucesso", "success");
+                    setTimeout(() => {
+                        navigate(0);
+                    }, 3000);
+                    
+                }).catch( (error:any) => {
+                    console.log(error)
+                })
+              
+            } else if (result.isDenied) {
+              Swal.fire("Este anuncio não foi excluido", "", "info");
+            }
+          });;
+          
+    
+}
+
+// function deletarProdutosAnuncio() {
+//     api.get("/produto").then((resListaProduto: any)=>{
+//         let listaProdutos:any = []
+//         listaProdutos = resListaProduto.data
+//         listaProdutos.forEach((produto :any) => {
+//             if(produto.anuncio.id == props.idAnuncio){
+//                 api.delete("produto/" + produto.id).then( (responseStatus:any) => {
+                    
+//                 }).catch( (error:any) => {
+//                     console.log(error)
+//                 })
+//             }
+//         });
+
+        
+//     })
+    
+// }
 
     function FormataStringData(data:string):string {
         //formata a data do MYSQL -> (1900-12-25) para (25/12/1900)
@@ -52,11 +112,60 @@ function CardDoador(props:any) {
                     </p>
                 </div>
                 <div className="iconesCards">
-                    <Link to="/querodoarpt2"><img src={ imgIconeEditar } alt="Icone de Editar" /></Link>
-                    <Link to="/querodoarpt2"><img src={ imgIconeVisualizar } alt="Icone de visualizar"/></Link>
-                    <Link to="/querodoarpt1" onClick={ msgExcluirDoacao }><img src={ imgIconeDeletar } alt="Icone de Deletar"/></Link>
-                </div>
+
+                        <button 
+                            type="button"
+                            onClick={ () => visualizarAnuncio() }
+                        >
+                            <img
+                                src={ico_eye}
+                                alt="Icone de visualizar"
+                            />
+                        </button>
+
+                        {   props.status == "Coleta Finalizada" ?
+                            <></>
+                            : <button 
+                                type="button"
+                                onClick={ () => deletarAnuncio() }
+                            >
+                                <img
+                                    src={ico_delete}
+                                    alt="Icone de deletar"
+                                />
+                            </button>
+                        }
+                        
+                    </div>
             </div>
+            {
+                abrirModal 
+                
+                &&
+            
+                <ModalConfirmarDoacao 
+                    isOpen={ abrirModal } 
+                    status={ props.status }
+                    idAnuncio={ props.idAnuncio }
+                    imagemColeta={ props.imagem }
+                    index={ props.index }
+                    tituloModal={ props.title }
+                    data={ props.dataPubliq }
+                    quantidade={ props.totalItens }
+                    responsavel={ props.conteudoCardOwner }
+                    descricoes={ props.descricoes }
+                    codTelefone={ props.codTelefone }
+                    disponibilidade={ props.disponibilidade }
+                    dataRetirada={ props.dataRetirada }
+                    periodo={ props.periodo }
+                    rua={ props.rua }
+                    numero={ props.numero }
+                    cidade={ props.cidade }
+                    estado={ props.estado }
+                    cep={ props.cep }
+                    onClose={ () => visualizarAnuncio() }
+                />
+            }
         </div>
         </>
     )

@@ -1,0 +1,262 @@
+#mainModalConfirmarDoacao{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+}
+
+#mainModalConfirmarDoacao .margem_Doacao{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+#mainModalConfirmarDoacao .fecharModal{
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 1rem;
+}
+
+#mainModalConfirmarDoacao .fecharModal button{
+    border: none;
+    cursor: pointer;
+}
+
+#mainModalConfirmarDoacao .fecharModal img{
+    border-radius: 3px;
+    width: 2rem;
+}
+
+
+#mainModalConfirmarDoacao .menu_Direito{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#mainModalConfirmarDoacao .title{
+    padding-bottom: 40px;
+}
+
+#mainModalConfirmarDoacao .title h2{
+    font-family: var(--font2);
+    font-size: 2rem;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+}
+
+#mainModalConfirmarDoacao .title p{
+    font-family: var(--font2);
+    font-size: 1rem;
+    color: var(--cinza);
+}
+
+
+
+
+#mainModalConfirmarDoacao .btnRetirar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#mainModalConfirmarDoacao .btnRetirar > button{
+    border-radius: 15px;
+    border: 4px solid var(--roxo);
+    color: var(--roxo);
+    padding: 2px 35px;
+    font-family: var(--font1);
+    font-size: 18px;
+    font-weight:800;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: white;
+
+}
+
+#mainModalConfirmarDoacao .dados_doacao1{
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 30px;
+}
+
+
+
+#mainModalConfirmarDoacao .dados_doacao1 div:first-child{
+    margin-right: 30px;
+}
+
+#mainModalConfirmarDoacao .dados_doacao1 > img{
+    width: 90%;
+    
+    /* max-width: 310px; */
+}
+
+
+#mainModalConfirmarDoacao .dados_doacao1 h5{
+    font-family: var(--font2);
+    font-size: 18px;
+    font-weight: 800;
+    padding-bottom: 15px;
+    max-width: 310px;
+    text-transform: capitalize;
+}
+
+#mainModalConfirmarDoacao .dados_doacao1 img{
+    border-radius: 10px;
+    max-width: 350px;
+    width: 100%;
+}
+
+#mainModalConfirmarDoacao .dados_doacao1 h4, 
+#mainModalConfirmarDoacao .dados_responsavel h4, 
+#mainModalConfirmarDoacao .dados_horario h4, 
+#mainModalConfirmarDoacao .dados_local h4{
+    font-family: var(--font2);
+    font-size: 21px;
+    font-weight: 600;
+    padding-bottom: 34px;
+    text-align: left;
+}
+
+#mainModalConfirmarDoacao .dados_doacao1 p, 
+#mainModalConfirmarDoacao .dados_responsavel p, 
+#mainModalConfirmarDoacao .dados_horario p, 
+#mainModalConfirmarDoacao .dados_local p{
+    font-family: var(--font2);
+    font-size: 13px;
+}
+
+#mainModalConfirmarDoacao .dados_doacao1 span{
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+#mainModalConfirmarDoacao .dados_responsavel, 
+#mainModalConfirmarDoacao .dados_local{
+    padding-bottom: 30px;
+}
+
+#mainModalConfirmarDoacao .dados_horario{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+#mainModalConfirmarDoacao .dados_horario div{
+    width: 30%;
+    max-width: 500px;
+}
+
+#mainModalConfirmarDoacao .dados_horario span, .form_obs label {
+    font-size: 15px;
+    font-weight:600 ;
+    font-family: var(--font1);
+}
+
+#mainModalConfirmarDoacao .form_obs label {
+    width: 100%;
+}
+
+#mainModalConfirmarDoacao .dados_horario div{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+#mainModalConfirmarDoacao .btnRetirar{
+    display: flex;
+    justify-content: space-around;
+}
+
+#mainModalConfirmarDoacao .btnRetirar a{
+    color: var(--roxo);
+    font-size: 20;
+    font-weight: 800;
+    font-family: var(--font1);
+    text-transform: uppercase;
+    padding: 4px 70px;
+}
+
+
+@media screen and (max-width: 1131px) {
+    #mainModalConfirmarDoacao .title>h2 {  
+        font-size: 28px;
+        width: 353px;
+    }
+}
+@media screen and (max-width: 1055px) {
+    #mainModalConfirmarDoacao .Conteudo_Doacao{
+        display: flex;
+        flex-direction: column;
+    }
+    #mainModalConfirmarDoacao .dados_doacao1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #mainModalConfirmarDoacao .Title_Img_Donation{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #mainModalConfirmarDoacao .Title_Img_Donation>h5{
+        margin-bottom: 15px;
+        text-align: center;
+
+    }
+    #mainModalConfirmarDoacao .Title_Img_Donation>img{
+        margin-bottom: 40px;
+    }
+    #mainModalConfirmarDoacao .dados_doacao1 div:first-child {
+        margin-right: 0;
+    }
+    #mainModalConfirmarDoacao .dados_doacao1 div:nth-child(2){
+        width: 90%;
+        align-self: center;
+    }
+    #mainModalConfirmarDoacao .dados_horario, .dados_local, .dados_responsavel{
+        width: 90%;
+        align-self: center;
+    }
+
+}
+@media screen and (max-width: 690px) {
+    #mainModalConfirmarDoacao .conteudo_doacoes {
+        column-gap: 0;
+    }
+    #mainModalConfirmarDoacao .title>h2 {  
+        font-size: 25px;
+        width: 100%;
+    }
+    #mainModalConfirmarDoacao .title>p { 
+        font-size: 14px;
+    }
+    #mainModalConfirmarDoacao .margem_Doacao {
+        padding: 3rem 0;
+    }
+    #mainModalConfirmarDoacao .Title_Img_Donation>img{
+        width: 85%;
+    }
+}
+@media screen and (max-width: 520px) {
+    #mainModalConfirmarDoacao .conteudo_doacoes{
+        display: flex;
+        flex-direction: column;
+    }
+    #mainModalConfirmarDoacao .title{
+        text-align: center;
+    }
+    #mainModalConfirmarDoacao .btnRetirar>a{
+        padding: 4px 30px;
+    }
+}
