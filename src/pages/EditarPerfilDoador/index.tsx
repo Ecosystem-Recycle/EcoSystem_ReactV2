@@ -153,7 +153,7 @@ function EditarPerfilDoador() {
                           onChange={(event) => setEmail(event.target.value)}
                         />
                       </div>
-                      <div className="campo-form">
+                      {/* <div className="campo-form">
                         <label htmlFor="senha">Senha:</label>
                         <input
                           value={senha}
@@ -165,7 +165,7 @@ function EditarPerfilDoador() {
                           autoComplete="new-password"
                           onChange={(event) => setSenha(event.target.value)}
                         />
-                      </div>
+                      </div> */}
                       <div className="campo-form">
                         <label htmlFor="cpf_cnpj">CPF ou CNPJ:</label>
                         <input

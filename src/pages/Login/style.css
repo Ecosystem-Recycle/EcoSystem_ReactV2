@@ -1,3 +1,7 @@
+.swal2-popup {
+    font-size: 1.15rem;
+}
+
 #login .sessao_formulario_login {
     display: flex;
     margin: 50px 100px;
