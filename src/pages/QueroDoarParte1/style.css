@@ -189,7 +189,8 @@
     transition: .25s;
 }
 
-#mainQueroDoarParte1 .btn_form button:hover{
+#mainQueroDoarParte1 .btn_form button:hover,
+#mainQueroDoarParte1 .btn_form button:focus{
     transform: scale(1.07);
 }
 
@@ -215,6 +216,15 @@
     background-color: var(--roxo);
     color: white;
 }
+
+#mainQueroDoarParte1 .btnPublicar button:focus,
+#mainQueroDoarParte1 .btnPublicar > a:focus
+{
+    transform: scale(1.07);
+    background-color: var(--roxo);
+    color: white;
+}
+
 
 
 #mainQueroDoarParte1 .btnInserir img{
@@ -337,10 +347,27 @@
     padding: 0;
     border-radius: 0 0 7px 7px;
     cursor: pointer;
+    z-index: 5;
 }
 
 #mainQueroDoarParte1 input[type="file"] {
-    display: none;
+    opacity: 0;
+}
+
+#mainQueroDoarParte1 .inputDiv {
+    position:absolute
+
+}
+
+#mainQueroDoarParte1 input[type="file"]:hover,
+#mainQueroDoarParte1 input[type="file"]:focus {
+    opacity: 1;
+    position: relative;
+    top: 10px;
+    width: 10px;
+    height: 2px;
+    z-index: 0;
+    cursor: pointer;
 }
 
 

@@ -388,15 +388,19 @@ function limparCampos(qualTipo:string){
                           }
                             
                           </div>
-                          <label htmlFor="imagem1">+ Adicionar Foto</label>              
-                          <input 
-                            tabIndex={ 0 }
-                            type="file" 
-                            name="imagem1" 
-                            id="imagem1" 
-                            accept="image" 
-                            onChange={ verificarCampoUpload }
-                          />
+                          <label
+                            htmlFor="imagem1"
+                          >+ Adicionar Foto
+                           </label> 
+                           <div className="inputDiv">
+                            <input 
+                              type="file" 
+                              name="imagem1" 
+                              id="imagem1" 
+                              accept="image" 
+                              onChange={ () => verificarCampoUpload(event) }
+                            />
+                            </div>             
                           
                           
                         </div>
