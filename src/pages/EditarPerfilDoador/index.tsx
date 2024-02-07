@@ -90,10 +90,11 @@ function EditarPerfilDoador() {
     
 
   function buscarCep() {
-    if(cep == ""){
-        alert("Campo de CEP não pode ser Vazio?")
-        return
-    }
+    // if(cep == null || cep == ""){
+    // if(cep == "" && cep == null){
+    //     alert("Campo de CEP não pode ser Vazio?")
+    //     return
+    // }
     const options = {
         method: "GET",
         mode: "cors",
@@ -107,7 +108,16 @@ function EditarPerfilDoador() {
         setCidade(response.data.localidade)
         setUf(response.data.uf)
         setBairro(response.data.bairro)
+      })
+      .catch((error) => {
+        console.error("Erro", error)
+        // alert("CEP inválido, por favor tente novamente")
+        Swal.fire({
+          icon: "error",
+          text: "CEP inválido, por favor, tente novamente",
+          confirmButtonText: "Ok"
       });
+      }) 
   }
 
 
@@ -153,7 +163,7 @@ function EditarPerfilDoador() {
                           onChange={(event) => setEmail(event.target.value)}
                         />
                       </div>
-                      {/* <div className="campo-form">
+                      <div className="campo-form">
                         <label htmlFor="senha">Senha:</label>
                         <input
                           value={senha}
@@ -165,7 +175,7 @@ function EditarPerfilDoador() {
                           autoComplete="new-password"
                           onChange={(event) => setSenha(event.target.value)}
                         />
-                      </div> */}
+                      </div>
                       <div className="campo-form">
                         <label htmlFor="cpf_cnpj">CPF ou CNPJ:</label>
                         <input
@@ -216,6 +226,7 @@ function EditarPerfilDoador() {
                           <label htmlFor="cep">CEP:</label>
                           <input
                             value={cep}
+                            // value=""
                             type="text"
                             id="cep"
                             name="cep"
