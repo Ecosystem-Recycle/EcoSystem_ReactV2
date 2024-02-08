@@ -90,11 +90,6 @@ function EditarPerfilDoador() {
     
 
   function buscarCep() {
-    // if(cep == null || cep == ""){
-    // if(cep == "" && cep == null){
-    //     alert("Campo de CEP não pode ser Vazio?")
-    //     return
-    // }
     const options = {
         method: "GET",
         mode: "cors",
@@ -111,7 +106,6 @@ function EditarPerfilDoador() {
       })
       .catch((error) => {
         console.error("Erro", error)
-        // alert("CEP inválido, por favor tente novamente")
         Swal.fire({
           icon: "error",
           text: "CEP inválido, por favor, tente novamente",
@@ -183,6 +177,7 @@ function EditarPerfilDoador() {
                           type="text"
                           name="cpf_cnpj"
                           id="cpf_cnpj"
+                          maxLength={11}
                           placeholder="Digite o seu CPF ou CNPJ..."
                           required
                           onChange={(event) => setCpf_cnpj(event.target.value)}
@@ -195,8 +190,9 @@ function EditarPerfilDoador() {
                           type="tel"
                           name="telefone"
                           id="telefone"
+                          maxLength={11}
                           placeholder="Digite o seu telefone Ex. (DDD) 91234-5678..."
-                        //   pattern="([0-9]){2} [0-9]{4}-[0-9]{4}"
+                          // pattern="([0-9]){2} [0-9]{4}-[0-9]{  4}"
                           required
                           onChange={(event) => setTelefone(event.target.value)}
                         />
