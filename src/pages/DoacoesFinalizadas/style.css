@@ -132,6 +132,12 @@
         row-gap: 3rem;
     }
 
+    #mainDoacoesFinalizadas .Conteudo_Cards {
+      
+        grid-template-columns: 1fr;
+        width: 95%;
+    }
+
 
     #mainDoacoesFinalizadas .links_pags a {
         font-size: 14px;
