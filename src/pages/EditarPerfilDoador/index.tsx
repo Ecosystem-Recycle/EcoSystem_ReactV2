@@ -47,9 +47,12 @@ function EditarPerfilDoador() {
 
 
   function formatacaoCPF(value: any) {
+  if(value === null || value === undefined) {
+    return "";
+  } else {
     const cpfFormatado = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
     return cpfFormatado
-  }
+  }}
 
   function handleChangeCPF(event: any) {
     const cpfRecebido = event.target.value;
@@ -63,8 +66,12 @@ function EditarPerfilDoador() {
   }
 
   function formatacaoTelefone(value: any) {
-    const telefoneFormatado = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-    return telefoneFormatado;
+    if(value === null || value === undefined){
+      return "";
+    } else {
+      const telefoneFormatado = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+      return telefoneFormatado;
+    }
   }
 
   function handleChangeTelefone(event: any) {
