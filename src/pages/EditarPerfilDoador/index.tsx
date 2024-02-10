@@ -9,94 +9,128 @@ import secureLocalStorage from "react-secure-storage";
 
 function EditarPerfilDoador() {
 
-    const navigate = useNavigate()
-    const [userId] = useState<any>(secureLocalStorage.getItem("userId"));
+  const navigate = useNavigate()
+  const [userId] = useState<any>(secureLocalStorage.getItem("userId"));
 
-    const [ nome, setNome ] = useState<string>("")
-    const [ cpf_cnpj, setCpf_cnpj ] = useState<string>("")
-    const [ email, setEmail ] = useState<string>("")
-    const [ senha, setSenha ] = useState<string>("")
-    const [ telefone, setTelefone ] = useState<string>("")
-    const [ genero, setGenero ] = useState<string>("")
-    const [ logradouro, setLogradouro ] = useState<string>("")
-    const [ cidade, setCidade ] = useState<string>("")
-    const [ uf, setUf ] = useState<string>("")
-    const [ cep, setCep ] = useState<string>("")
-    const [ bairro, setBairro ] = useState<string>("")
-    const [ numero, setNumero ] = useState<string>("")
+  const [nome, setNome] = useState<string>("")
+  const [cpf_cnpj, setCpf_cnpj] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [senha, setSenha] = useState<string>("")
+  const [telefone, setTelefone] = useState<string>("")
+  const [genero, setGenero] = useState<string>("")
+  const [logradouro, setLogradouro] = useState<string>("")
+  const [cidade, setCidade] = useState<string>("")
+  const [uf, setUf] = useState<string>("")
+  const [cep, setCep] = useState<string>("")
+  const [bairro, setBairro] = useState<string>("")
+  const [numero, setNumero] = useState<string>("")
 
-    useEffect( () => {
-        document.title = "Editar Perfil Doador - Ecosystem e Recycle"
-        preencherCampos();
-    }, [] )
-    
+  useEffect(() => {
+    document.title = "Editar Perfil Doador - Ecosystem e Recycle"
+    preencherCampos();
+  }, [])
 
-    function preencherCampos(){
-        setNome(userId.nome);
-        setEmail(userId.email);
-        setCpf_cnpj(userId.cpf_Cnpj);
-        setTelefone(userId.telefone);
-        setGenero(userId.Genero);
-        setCep(userId.endereco.cep);
-        setLogradouro(userId.endereco.logradouro);
-        setNumero(userId.endereco.numero);
-        setBairro(userId.endereco.bairro);
-        setCidade(userId.endereco.cidade);
-        setUf(userId.endereco.estado);
+
+  function preencherCampos() {
+    setNome(userId.nome);
+    setEmail(userId.email);
+    setCpf_cnpj(userId.cpf_Cnpj);
+    setTelefone(userId.telefone);
+    setGenero(userId.genero);
+    setCep(userId.endereco.cep);
+    setLogradouro(userId.endereco.logradouro);
+    setNumero(userId.endereco.numero);
+    setBairro(userId.endereco.bairro);
+    setCidade(userId.endereco.cidade);
+    setUf(userId.endereco.estado);
+  }
+
+
+  function formatacaoCPF(value: any) {
+    const cpfFormatado = value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    return cpfFormatado
+  }
+
+  function handleChangeCPF(event: any) {
+    const cpfRecebido = event.target.value;
+
+    if (cpfRecebido.match(/[ .-]/)) {
+      const cpfLimpo = cpfRecebido.replace(/[ .-]/g, '');
+      setCpf_cnpj(cpfLimpo);
+    } else {
+      setCpf_cnpj(cpfRecebido);
     }
+  }
 
-    function editarUsuario(event: any ){
-        event.preventDefault();
-        const formData = new FormData();
+  function formatacaoTelefone(value: any) {
+    const telefoneFormatado = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+    return telefoneFormatado;
+  }
 
-          formData.append("id", userId.id)
-          formData.append("nome", nome)
-          formData.append("email", email)
-          formData.append("senha", senha);
-          formData.append("telefone", telefone);
-          formData.append("genero", genero);   
-          formData.append("cpf_Cnpj", cpf_cnpj);
-          formData.append("tipo_User", userId.tipousuario.nome);
-          formData.append("endereco_id", userId.endereco.id);
+  function handleChangeTelefone(event: any) {
+    const telefoneRecebido = event.target.value;
 
+    if (telefoneRecebido.match(/[ ()-]/)) {
+      const telLimpo = telefoneRecebido.replace(/[ ()-]/g, '');
+      setTelefone(telLimpo);
 
-        api.put("http://localhost:8090/usuarios/media/" + userId.id, formData)
-        .then((responseUser: any) => {
-            const formDataEndereco = new FormData();
-
-            formDataEndereco.append("id", userId.endereco.id)
-            formDataEndereco.append("logradouro", logradouro)
-            formDataEndereco.append("numero", numero)
-            formDataEndereco.append("bairro", bairro);
-            formDataEndereco.append("cidade", cidade);
-            formDataEndereco.append("estado", uf);   
-            formDataEndereco.append("cep", cep);
-
-            api.put("http://localhost:8090/endereco/media/" + userId.endereco.id, formDataEndereco)
-            .then((responseEndereco: any) => {
-                localStorage.removeItem("userId");
-                api.get("usuarios/email/" + email).then((responseEmail: any)=>{
-                  secureLocalStorage.setItem("userId", responseEmail.data);
-                  Swal.fire("Sucesso!", "Dados Alterados com Sucesso", "info");
-                  setTimeout(() => {
-                  navigate(0);
-                  }, 3000);
-                })      
-
-            });
-
-        });
+    } else {
+      setTelefone(telefoneRecebido);
     }
-    
+  }
+
+  function editarUsuario(event: any) {
+    event.preventDefault();
+    const formData = new FormData();
+
+    formData.append("id", userId.id)
+    formData.append("nome", nome)
+    formData.append("email", email)
+    formData.append("senha", senha);
+    formData.append("telefone", telefone);
+    formData.append("genero", genero);
+    formData.append("cpf_Cnpj", cpf_cnpj);
+    formData.append("tipo_User", userId.tipousuario.nome);
+    formData.append("endereco_id", userId.endereco.id);
+
+
+    api.put("http://localhost:8090/usuarios/media/" + userId.id, formData)
+      .then((responseUser: any) => {
+        const formDataEndereco = new FormData();
+
+        formDataEndereco.append("id", userId.endereco.id)
+        formDataEndereco.append("logradouro", logradouro)
+        formDataEndereco.append("numero", numero)
+        formDataEndereco.append("bairro", bairro);
+        formDataEndereco.append("cidade", cidade);
+        formDataEndereco.append("estado", uf);
+        formDataEndereco.append("cep", cep);
+
+        api.put("http://localhost:8090/endereco/media/" + userId.endereco.id, formDataEndereco)
+          .then((responseEndereco: any) => {
+            localStorage.removeItem("userId");
+            api.get("usuarios/email/" + email).then((responseEmail: any) => {
+              secureLocalStorage.setItem("userId", responseEmail.data);
+              Swal.fire("Sucesso!", "Dados Alterados com Sucesso", "info");
+              setTimeout(() => {
+                navigate(0);
+              }, 3000);
+            })
+
+          });
+
+      });
+  }
+
 
   function buscarCep() {
     const options = {
-        method: "GET",
-        mode: "cors",
-        headers: {
-            'content-type': 'application/json;charset=utf-8',
-        }
-    } 
+      method: "GET",
+      mode: "cors",
+      headers: {
+        'content-type': 'application/json;charset=utf-8',
+      }
+    }
     api.get("https://viacep.com.br/ws/" + cep + "/json/", options)
       .then((response: any) => {
         setLogradouro(response.data.logradouro)
@@ -110,8 +144,8 @@ function EditarPerfilDoador() {
           icon: "error",
           text: "CEP inválido, por favor, tente novamente",
           confirmButtonText: "Ok"
-      });
-      }) 
+        });
+      })
   }
 
 
@@ -130,7 +164,7 @@ function EditarPerfilDoador() {
               <div>
                 <div className="Conteudo">
                   <section className="formulario">
-                    <form className="formDoador" onSubmit={ editarUsuario } method="put">
+                    <form className="formDoador" onSubmit={editarUsuario} method="put">
                       <h2>Dados Gerais:</h2>
                       <div className="campo-form">
                         <label htmlFor="nomeUsuario">Nome Completo:</label>
@@ -173,38 +207,39 @@ function EditarPerfilDoador() {
                       <div className="campo-form">
                         <label htmlFor="cpf_cnpj">CPF ou CNPJ:</label>
                         <input
-                          value={cpf_cnpj}
+                          value={formatacaoCPF(cpf_cnpj)}
                           type="text"
                           name="cpf_cnpj"
                           id="cpf_cnpj"
-                          maxLength={11}
+                          maxLength={14}
                           placeholder="Digite o seu CPF ou CNPJ..."
                           required
-                          onChange={(event) => setCpf_cnpj(event.target.value)}
+                          onChange={handleChangeCPF}
+
                         />
                       </div>
                       <div className="campo-form">
                         <label htmlFor="telefone">Telefone:</label>
                         <input
-                          value={telefone}
+                          value={formatacaoTelefone(telefone)}
                           type="tel"
                           name="telefone"
                           id="telefone"
-                          maxLength={11}
+                          maxLength={15}
                           placeholder="Digite o seu telefone Ex. (DDD) 91234-5678..."
                           // pattern="([0-9]){2} [0-9]{4}-[0-9]{  4}"
                           required
-                          onChange={(event) => setTelefone(event.target.value)}
+                          onChange={handleChangeTelefone}
                         />
                       </div>
                       <div className="campo-form">
                         <label htmlFor="selectGenero">Genero:</label>
                         <select
+                          value={genero}
                           className="selectGenero"
                           name="selectGenero"
                           id="selectGenero"
                           required
-                          value={genero}
                           onChange={(event) => setGenero(event.target.value)}
                         >
                           {" "}
@@ -235,14 +270,14 @@ function EditarPerfilDoador() {
                           <input
                             type="button"
                             value="Buscar"
-                            onClick={ buscarCep }
+                            onClick={buscarCep}
                           />
                         </div>
                       </div>
                       <div className="camposDuplo">
                         <div className="campo-form">
-                            <label htmlFor="logradouro">Logradouro:</label>
-                            <input
+                          <label htmlFor="logradouro">Logradouro:</label>
+                          <input
                             value={logradouro}
                             type="text"
                             name="logradouro"
@@ -251,11 +286,11 @@ function EditarPerfilDoador() {
                             required
                             onChange={(event) => setLogradouro(event.target.value)}
 
-                            />
+                          />
                         </div>
                         <div className="campo-form">
-                            <label htmlFor="numero">Numero:</label>
-                            <input
+                          <label htmlFor="numero">Numero:</label>
+                          <input
                             value={numero}
                             type="text"
                             name="numero"
@@ -263,22 +298,22 @@ function EditarPerfilDoador() {
                             placeholder="Digite o seu Número..."
                             required
                             onChange={(event) => setNumero(event.target.value)}
-                            
-                            />
+
+                          />
                         </div>
                       </div>
                       <div className="campo-form">
-                            <label htmlFor="bairro">Bairro:</label>
-                            <input
-                            value={bairro}
-                            type="text"
-                            name="bairro"
-                            id="bairro"
-                            placeholder="Digite o seu Bairro..."
-                            required
-                            onChange={(event) => setBairro(event.target.value)}
-                            />
-                        </div>
+                        <label htmlFor="bairro">Bairro:</label>
+                        <input
+                          value={bairro}
+                          type="text"
+                          name="bairro"
+                          id="bairro"
+                          placeholder="Digite o seu Bairro..."
+                          required
+                          onChange={(event) => setBairro(event.target.value)}
+                        />
+                      </div>
                       <div className="camposDuplo">
                         <div className="campo-form">
                           <label htmlFor="cidade">Cidade:</label>
@@ -290,7 +325,7 @@ function EditarPerfilDoador() {
                             placeholder="Digite sua cidade..."
                             required
                             onChange={(event) => setCidade(event.target.value)}
-                            
+
                           />
                         </div>
                         <div className="campo-form">
@@ -334,12 +369,12 @@ function EditarPerfilDoador() {
                             <option value="TO">TO</option>
                           </select>
                         </div>
-                      </div>              
-                        <div className="btnEditar">
-                            <button type="submit">
-                                Salvar
-                            </button>
-                        </div>
+                      </div>
+                      <div className="btnEditar">
+                        <button type="submit">
+                          Salvar
+                        </button>
+                      </div>
                     </form>
                   </section>
                 </div>
