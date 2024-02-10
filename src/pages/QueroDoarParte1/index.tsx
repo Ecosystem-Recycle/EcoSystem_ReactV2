@@ -26,7 +26,6 @@ function QueroDoarParte1() {
 
   const [totalItens, setTotalItens] = useState<number>(0);
 
-
   const [formValues, setFormValues] = useState<any>({
     categoria: "",
     nome: "",
@@ -86,6 +85,21 @@ function QueroDoarParte1() {
 
     if (listarProdutos.length <= 0) {
       alert('Adicione ao menos 1 Produto na Lista')
+      return
+    }
+
+    let validadorCadastro = true;
+
+    Object.values(userId).forEach((valor) => {
+      if(valor == null || valor == undefined) {
+        console.log("complete o cadastro")
+        validadorCadastro = false
+      }
+    })
+
+    if(!validadorCadastro) {
+      alert("complete cadastro")
+      navigate("/editarperfildoador")
       return
     }
 
@@ -241,12 +255,12 @@ function QueroDoarParte1() {
                             className="selectCategoria"
                             name="selectCategoria"
                             id="selectCategoria"
-                            placeholder="Selecione"
+                            placeholder="Selecione:"
                             required
-
                             value={formValues.categoria}
                             onChange={(event) => setFormValues({ ...formValues, categoria: event.target.value })}
-                          >   <option disabled value="">Selecione</option>
+                          >
+                            <option disabled value="">Selecione:</option>
                             <option value="Informatica">Informatica</option>
                             <option value="Telefonia">Telefonia</option>
                             <option value="Peças e Acessorios">Peças e Acessorios</option>
@@ -268,7 +282,7 @@ function QueroDoarParte1() {
                           <label htmlFor="quantidadeProduto">Quantidade:</label>
                           <input
                             value={formValues.quantidade}
-                            type="text"
+                            type="number"
                             name='quantidadeProduto'
                             id='quantidadeProduto'
                             placeholder='Digite a quantidade'
@@ -342,14 +356,18 @@ function QueroDoarParte1() {
                         <div className="camposDuplo">
                           <div className="campo-form">
                             <label htmlFor="horarioDisponivel">Data de retirada:</label>
-                            <input
-                              type="text"
+                            <select
                               id='horarioDisponivel'
                               name='horarioDisponivel'
-                              placeholder='Ex: Seg-Sex // Ter e Qua'
+                              value={valoresInput2.disponibilidade}
                               required
-                              onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.value })}
-                            />
+                              onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.value}) }
+                            >
+                              <option disabled value="">Selecione:</option>
+                              <option value="segunda">Segunda</option>
+                              <option value="terca">Terça</option>
+
+                            </select>
                           </div>
                           <div className="campo-form">
                             <label htmlFor="selectPeriodo">Período:</label>
