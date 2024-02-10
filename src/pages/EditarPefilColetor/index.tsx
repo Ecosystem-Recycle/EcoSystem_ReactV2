@@ -26,7 +26,7 @@ function EditarPefilColetor() {
     const [ numero, setNumero ] = useState<string>("")
 
     useEffect( () => {
-        document.title = "Editar Perfil Doador - Ecosystem e Recycle"
+        document.title = "Editar Perfil Coletor - Ecosystem e Recycle"
         preencherCampos();
     }, [] )
 
@@ -35,13 +35,57 @@ function EditarPefilColetor() {
         setEmail(userId.email);
         setCpf_cnpj(userId.cpf_Cnpj);
         setTelefone(userId.telefone);
-        setGenero(userId.Genero);
+        setGenero(userId.genero);
         setCep(userId.endereco.cep);
         setLogradouro(userId.endereco.logradouro);
         setNumero(userId.endereco.numero);
         setBairro(userId.endereco.bairro);
         setCidade(userId.endereco.cidade);
         setUf(userId.endereco.estado);
+    }
+
+    function formatacaoCNPJ(value: any) {
+      if(value === null || value === undefined) {
+        return "";
+      } else {
+        const cnpjFormatado = value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+        return cnpjFormatado
+      }}
+    
+      function handleChangeCNPJ(event: any) {
+        const cnpjRecebido = event.target.value;
+    
+        if (cnpjRecebido.match(/[ .-/]/)) {
+          const cnpjLimpo = cnpjRecebido.replace(/[ .-/]/g, '');
+          setCpf_cnpj(cnpjLimpo);
+        } else {
+          setCpf_cnpj(cnpjRecebido);
+        }
+      }
+
+
+
+
+
+    function formatacaoTelefone(value: any) {
+      if(value === null || value === undefined){
+        return "";
+      } else {
+        const telefoneFormatado = value.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
+        return telefoneFormatado;
+      }
+    }
+  
+    function handleChangeTelefone(event: any) {
+      const telefoneRecebido = event.target.value;
+  
+      if (telefoneRecebido.match(/[ ()-]/)) {
+        const telLimpo = telefoneRecebido.replace(/[ ()-]/g, '');
+        setTelefone(telLimpo);
+  
+      } else {
+        setTelefone(telefoneRecebido);
+      }
     }
 
     function editarUsuario(event: any ){
@@ -89,10 +133,7 @@ function EditarPefilColetor() {
     
 
   function buscarCep() {
-    if(cep == ""){
-        alert("Campo de CEP não pode ser Vazio?")
-        return
-    }
+
     const options = {
         method: "GET",
         mode: "cors",
@@ -106,7 +147,15 @@ function EditarPefilColetor() {
         setCidade(response.data.localidade)
         setUf(response.data.uf)
         setBairro(response.data.bairro)
-      });
+      }) 
+      .catch((error) => {
+        console.error("Erro", error)
+        Swal.fire({
+          icon: "error",
+          text: "CEP inválido, por favor, tente novamente",
+          confirmButtonText: "Ok"
+        });
+      })
   }
 
 
@@ -166,26 +215,31 @@ function EditarPefilColetor() {
                           <div className="campo-form">
                             <label htmlFor="cpf_cnpj">CPF ou CNPJ:</label>
                             <input
-                              value={cpf_cnpj}
+                              // value={cpf_cnpj}
+                              value={formatacaoCNPJ(cpf_cnpj)}
                               type="text"
                               name="cpf_cnpj"
                               id="cpf_cnpj"
+                              maxLength={18}
                               placeholder="Digite o seu CPF ou CNPJ..."
                               required
-                              onChange={(event) => setCpf_cnpj(event.target.value)}
+                              // onChange={(event) => setCpf_cnpj(event.target.value)}
+                              onChange={ handleChangeCNPJ }
                             />
                           </div>
                           <div className="campo-form">
                             <label htmlFor="telefone">Telefone:</label>
                             <input
-                              value={telefone}
+                              value={ formatacaoTelefone(telefone) }
                               type="tel"
                               name="telefone"
                               id="telefone"
+                              maxLength={15}
                               placeholder="Digite o seu telefone Ex. (DDD) 91234-5678..."
                             //   pattern="([0-9]){2} [0-9]{4}-[0-9]{4}"
                               required
-                              onChange={(event) => setTelefone(event.target.value)}
+                              // onChange={(event) => setTelefone(event.target.value)}
+                              onChange={handleChangeTelefone}
                             />
                           </div>
                           <div className="campo-form">
