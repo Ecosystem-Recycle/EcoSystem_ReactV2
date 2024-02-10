@@ -35,7 +35,7 @@ function PaginaInicial() {
                 <section className="bannerCarrousel">
                     
                     <Swiper
-                        modules = {[Autoplay, Keyboard]}
+                        modules={[Autoplay, Keyboard]}
                         spaceBetween={50}
                         slidesPerView={1}
                         loop
@@ -47,13 +47,13 @@ function PaginaInicial() {
                     >
                         {slides.map((slide:any, index: number) => (
                             <SwiperSlide key={ index }>
-                                <img  src={slide} alt={slide} />
+                                <img  src={slide} />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                     <div className="txtBtn_banner">
-                        <h2>ECO SYSTEM & </h2>
-                        <h2>RECYCLE</h2>
+                        <h2>ECO SYSTEM & 
+                        RECYCLE</h2>
                         <p>A Eco System & Recycle nasceu da necessidade por soluções que acelerem iniciativas de forma rápida e orgânica tornando se empresa de impacto socio ambiental.</p> 
                         {/* <a href="../Tela_Login_Doador/index.html" className="btn_cadastrar">cadastra-se</a> */}
                         <Link className="btn_cadastrar" to="/login">cadastra-se</Link>
@@ -88,9 +88,9 @@ function PaginaInicial() {
                             <p>
                                 Junte-se a nós no compromisso com a economia circular e sustentável, descartando de forma correta e eficiente com toda a comodidade e confiança que a tecnologia pode oferecer através de parceiros certificados e responsáveis.                    </p>
                             {/* <a href="../Tela_Login_Doador/index.html">
-                                cadastre-se
+                                // cadastre-se
                             </a> */}
-                            <Link to="/login">cadastre-se</Link>
+                            {/* <Link to="/login">cadastre-se</Link> */}
                         </div>
                         <div className="cad_parceiro">
                             <h3>seja um parceiro</h3>
@@ -100,7 +100,7 @@ function PaginaInicial() {
                             {/* <a href="../Tela_Login_Doador/index.html">
                                 cadastre-se
                             </a> */}
-                            <Link to="/login">cadastre-se</Link>
+                            {/* <Link to="/login">cadastre-se</Link> */}
                         </div>
 
                     </div>
@@ -117,13 +117,14 @@ function PaginaInicial() {
                             A média de reciclagem de eletrônicos no mundo gira em torno de 17%, que é a meta brasileira para 2025, definida no Acordo Setorial – Decreto 10.240/2020.
                         </p>
                         {/* <a href="../TelaInformativo/index.html">leia mais...</a> */}
-                        <Link to="/informativo">leia mais...</Link>
+                        {/* <Link to="/informativo">leia mais...</Link> */}
                     </div>
                 </section>
 
                 <section className="exemplos">
                     <div className="exe_conteudo wrapper">
-                        <img src={ home_exemplosImg } alt="Grupo de 9 imagens com exemplos de artes feitas através de materiais 100% aproveitado do descarte" />
+                        {/* <img src={ home_exemplosImg } alt="Grupo de 9 imagens com exemplos de artes feitas através de materiais 100% aproveitado do descarte" /> */}
+                        <img src={ home_exemplosImg } alt="Grupo de  imagens com exemplos de artes  feitas com materiais de descarte eletrônico como porta caneta feito com teclas de computador" />
                         <div>
                             <h4>Exemplos de Sustentabilidade.</h4>
                             <p>Reciclar é preciso, mas o que podemos fazer com os derivados de produtos eletrônicos que precisam ser jogados fora? Separamos algunsmas ideias pra você dar uma utilidade para seu lixo eletrônico e, de quebra, ajudar a natureza.</p>

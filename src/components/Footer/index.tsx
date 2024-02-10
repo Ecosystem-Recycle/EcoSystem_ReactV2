@@ -58,7 +58,8 @@ function Footer() {
                 alt="Icone do Instagran"
               />
             </a>
-            <a href="https://www.facebook.com/">
+            {/* <a href="https://www.facebook.com/"> */}
+          <a href="https://www.facebook.com/profile.php?id=61551452427589">
               <img src={icoFacebook} alt="Icone do Facebook" />
             </a>
           </div>

@@ -82,7 +82,7 @@ function Header() {
     return (
         <header>
             <div className="div_headerPosition wrapper">
-                <img src={imgLogo} alt="logotipo Ecosystem e Recycle do Header" />
+                <img src={imgLogo} alt="logotipo Ecosystem e Recycle do Header, contendo um  quadrado dentro de um triangulo desenhado com setas" />
                 
                 { 
                     // se o tamanho da tela dor pequeno renderiza o menu de usuario logado dentro de uma div

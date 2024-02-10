@@ -12,7 +12,7 @@ function Informativo() {
                 <section className="banner_fundo">
                     <div>
                         <div className="lixo1 wrapper">
-                            <img className="lixo1" src={img_lixo1} alt="lixo1" />
+                            <img className="lixo1" src={img_lixo1} alt="montante de lixo eleronico" />
                             {/* <div class="lixo1_filho"> */}
                             <h2>ESG</h2>
                             <p>
@@ -36,7 +36,7 @@ function Informativo() {
                         <img
                             className="simbolo2"
                             src={img_simbolo_reciclagem2}
-                            alt="simbolo2"
+                            alt="simbolo da reciclagemque possui a escrita lixo eletronico"
                         />
                         <p>
                             Econômia Circular: Economia circular é um conceito que associa
@@ -64,7 +64,7 @@ function Informativo() {
                     <div className="ciclo_logistico wrapper">
                         <h2>Ciclo da Logística Reversa</h2>
                         <div className="logistica">
-                            <img src={img_ciclo_logistico} alt="foto" />
+                            <img src={img_ciclo_logistico} alt="menssagem logistica reversa  dentro do circulo, com varias setas saindo dele" />
                             <p>
                                 A Logística Reversa é um instrumento de desenvolvimento econômico e
                                 social caracterizado por um conjunto de ações, procedimentos e meios
@@ -100,12 +100,7 @@ function Informativo() {
                             programa regional de reciclagem com esquemas de separação e coleta
                             seletiva dos resíduos no local. Em todos os nossos centros de
                             distribuição, mais de 85% dos materiais são recuperados com parceiros
-                            locais. No caso do papelão, em particular na Argentina e no México, o
-                            material é recuperado e enviado para reciclagem e produção de novas
-                            caixas ou papelão. Implementamos também o programa de logística reversa,
-                            oferecido a vendedores com um potencial de reutilização de produtos de
-                            cerca de 40% do volume total de itens trocados ou devolvidos. Desde seu
-                            lançamento no Brasil,
+                            locais. 
 
 
                         </p>
@@ -146,11 +141,11 @@ function Informativo() {
                         lixo eletrnico. Mais de 90% acreditam que celulares, smartphones, tablets, notebooks, pilhas e baterias são lixo eletrônico e estão corretos.
                         Houve, no entanto, muitas respostas erradas: 51% não acham que lâmpadas comuns, incandescentes e fluorescentes são lixo eletrônico; 34% acreditam
                         que lanternas não são lixo eletrônico e 37% acreditam que balanças não são lixo eletrônico. Na verdade, todos esses objetos são lixo eletrônico.
-                        O conceito de Resíduo de Equipamentos Elétricos e Eletrônicos (REEE) é todo produto elétrico ou eletrônico que é descartado por não ter mais utilidade.
+                        {/* O conceito de Resíduo de Equipamentos Elétricos e Eletrônicos (REEE) é todo produto elétrico ou eletrônico que é descartado por não ter mais utilidade.
                         Inclui grandes equipamentos como geladeiras, freezers, mquinas de lavar pequenos equipamentos como torradeiras, batedeiras, aspiradores de pó,
                         ventiladores equipamentos de informática como computadores e celulares e pilhas e baterias.
                         O descarte incorreto de lixo eletrônico é considerado um problema, pois os componentes químicos podem ser prejudiciais ao meio ambiente
-                        e a saúde humana.
+                        e a saúde humana. */}
                     </p>
 
 
