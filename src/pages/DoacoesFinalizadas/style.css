@@ -61,11 +61,12 @@
     color: var(--roxo);
 }
 
-#mainDoacoesFinalizadas .links_pags a:nth-child(1):hover{
+#mainDoacoesFinalizadas .links_pags a:nth-child(1):hover,
+#mainDoacoesFinalizadas .links_pags a:nth-child(1):focus{
     border: 1px solid var(--verde2);
     background-color: var(--verde2);
     color: white;
-    transform: scale(0.5);
+    transform: scale(0.9);
 }
 
 

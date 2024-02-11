@@ -104,4 +104,11 @@
     border: none;
     background-color: white;
     cursor: pointer;
+    transition: .35s
+}
+
+#CardColetaAtiva .iconesCards button:hover,
+#CardColetaAtiva .iconesCards button:focus{
+    transform: scale(1.10);
+    outline: auto;
 }

@@ -29,6 +29,12 @@
 #mainModalConfirmarDoacao .fecharModal button{
     border: none;
     cursor: pointer;
+    transition: 0.35s;
+}
+
+#mainModalConfirmarDoacao .fecharModal button:hover,
+#mainModalConfirmarDoacao .fecharModal button:focus{
+    transform: scale(1.10);
 }
 
 #mainModalConfirmarDoacao .fecharModal img{
@@ -233,6 +239,13 @@
     }
 
 }
+
+@media screen and (max-width: 910px) {
+    #mainModalConfirmarDoacao .margem_Doacao {
+        width: 70%;
+    }
+}
+
 @media screen and (max-width: 690px) {
     #mainModalConfirmarDoacao .conteudo_doacoes {
         column-gap: 0;
@@ -261,5 +274,26 @@
     }
     #mainModalConfirmarDoacao .btnRetirar>a{
         padding: 4px 30px;
+    }
+
+    #mainModalConfirmarDoacao .dados_doacao1 h5,
+    #mainModalConfirmarDoacao .dados_doacao1 h4 {
+        font-size: 16px;
+        
+    }
+    #mainModalConfirmarDoacao .dados_doacao1 h4, 
+    #mainModalConfirmarDoacao .dados_responsavel h4, 
+    #mainModalConfirmarDoacao .dados_horario h4, 
+    #mainModalConfirmarDoacao .dados_local h4 {   
+        font-size: 16px;
+        padding-bottom: 14px;
+    }
+
+    #mainModalConfirmarDoacao .dados_doacao1 p{
+        font-size: 12px;
+    }
+
+    #mainModalConfirmarDoacao .margem_Doacao {
+        width: 90%;
     }
 }

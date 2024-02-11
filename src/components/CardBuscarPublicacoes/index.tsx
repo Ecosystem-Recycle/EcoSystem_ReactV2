@@ -1,5 +1,4 @@
 import './style.css'
-import { Link } from "react-router-dom"
 import { useNavigate } from 'react-router-dom';
 import api from '../../utils/api';
 import secureLocalStorage from 'react-secure-storage';
@@ -62,13 +61,6 @@ export default function CardBuscarPublicacoes(props: any) {
                     </div>
                     <p>{props.cidade} - {props.estado}</p>
                 </div>
-                    {/* <Link 
-                        onClick={ () => agendarColeta(props.id) }
-                        to="/agendarcoleta"
-                    >
-                        Agendar
-                    </Link> */}
-
                     <button 
                         type="button"
                         onClick={ () => agendarColeta(props.id) }

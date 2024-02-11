@@ -6,8 +6,10 @@ import api from '../../utils/api';
 
 import ico_fechar from '../../assets/img/exit.svg'
 import { useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
 function ModalConfirmarColeta(props:any) {
+  const ref = useRef(null);
   const navigate = useNavigate()
 
   function FormataStringData(data:string):string {
@@ -82,7 +84,7 @@ function atualizarStatusColeta(idColeta: string){
 
   if( props.isOpen ){
     return (
-      <div id='mainModalConfirmarColeta'>
+      <div id='mainModalConfirmarColeta' tabIndex={1} ref={ref} >
         
         <div className="margem_Doacao" >
           <div className='fecharModal'>

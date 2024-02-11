@@ -1,5 +1,5 @@
 
-.cardAgendar{
+#mainBuscarPublicacoes .cardAgendar{
     display:flex;
     border: 10px;
     border-radius: 10px;
@@ -13,20 +13,20 @@
     font-weight: bold;
 }
 
-.cardAgendar>div>img{
+#mainBuscarPublicacoes .cardAgendar>div>img{
     /* width: 100%; */
     width: 206px;
     height: 144px;
     border-radius: 5px;
 } 
 
- .cardAgendar img {
+#mainBuscarPublicacoes .cardAgendar img {
     width: 100%;
     height: 100%;
     border-radius:10px 0 0 10px;
 }
 
-.conteudoCard > button{
+#mainBuscarPublicacoes .conteudoCard > button{
     align-self: flex-end;
     border-radius:30px;
     border: 3px solid var(--roxo); 
@@ -41,7 +41,8 @@
     transition: .35s
 }
 
-.conteudoCard > button:hover{
+#mainBuscarPublicacoes .conteudoCard > button:hover,
+#mainBuscarPublicacoes .conteudoCard > button:focus{
     background: var(--roxo);
     color: var(--branco);
     transform: scale(1.05);
@@ -50,10 +51,10 @@
 
 
 @media screen and (max-width: 1030px) {
-    .conteudoCard{
+    #mainBuscarPublicacoes .conteudoCard{
         flex-direction: column;
     }
-    .conteudoCard>a{
+    #mainBuscarPublicacoes .conteudoCard>a{
         align-self: self-start;
         margin-top: 20px;
         width: 120px;
@@ -62,16 +63,16 @@
 }
 
 @media screen and (max-width: 880px){
-    .cardAgendar{
+    #mainBuscarPublicacoes .cardAgendar{
         flex-direction: column;
         align-items: center;
         margin-right: 0;
     }
-    .conteudoCard{
+    #mainBuscarPublicacoes .conteudoCard{
         align-items: center;
 
     }
-    .conteudoCard>a{
+    #mainBuscarPublicacoes .conteudoCard>a{
         align-self: center;
     }
 
