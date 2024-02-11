@@ -5,8 +5,11 @@ import Swal from 'sweetalert2'
 import api from '../../utils/api';
 
 import ico_fechar from '../../assets/img/exit.svg'
+import { useNavigate } from 'react-router-dom';
 
 function ModalConfirmarColeta(props:any) {
+  const navigate = useNavigate()
+
   function FormataStringData(data:string):string {
         //formata a data do MYSQL -> (1900-12-25) para (25/12/1900)
         let ano  = data.split("-")[0];
@@ -53,13 +56,17 @@ function atualizarStatusColeta(idColeta: string){
         if (telefone == _codTelefone) {
           atualizarStatusAnuncio(_idAnuncio);
           atualizarStatusColeta(_idColeta);
-          return Swal.fire({
+
+          Swal.fire({
             title: "Sucesso!",
             text: "Coleta finalizada com sucesso", 
             icon:"success",
             confirmButtonColor: "#045328",
             timer: 3000
           });
+        setTimeout(() => {
+            navigate(0);
+        }, 3000);
         }else{
           return Swal.fire({
                 title: "Erro de Codigo!",

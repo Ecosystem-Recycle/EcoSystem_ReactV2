@@ -193,8 +193,6 @@ function AgendarColeta() {
                                     </div>
                                 </form>
                                 <div className='nextStep'>
-                                {/* <Link to="/buscarpublicacoes">Voltar</Link>
-                                <Link to="/coletasagendadas">Agendar</Link> */}
                                 </div>
                             
                         </div>

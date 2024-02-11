@@ -122,6 +122,7 @@ function AgendarColeta() {
                                                         conteudoCardData={ coleta.anuncio.data_cadastro }
                                                         conteudoCardQuantidade={ somarProdutos(filtrarProdutos(coleta)) }
                                                         conteudoCardOwner = { coleta.anuncio.usuario_doador.nome.split(" ")[0] }
+                                                        emailDoador = { coleta.anuncio.usuario_doador.email }
                                                         codTelefone = { coleta.anuncio.usuario_doador.telefone.substr(coleta.anuncio.usuario_doador.telefone.length - 4) }
                                                         disponibilidade = { coleta.anuncio.disponibilidade }
                                                         periodo = { coleta.anuncio.periodo }

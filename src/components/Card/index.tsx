@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import api from '../../utils/api';
+import emailjs from '@emailjs/browser';
 
 import ico_eye from '../../assets/img/ico_eye.svg'
 import ico_delete from '../../assets/img/ico_delete.svg'
@@ -35,18 +36,20 @@ export default function Card(props: any) {
         
             Swal.fire({
                 title: "Atenção!",
-                showDenyButton: true,
+                showDenyButton: false,
                 denyButtonText: `Não Excluir`,
                 showCancelButton: true,
                 confirmButtonText: "Excluir",
-                text: "Deseja Excluir Essa Coleta?", 
+                text: "Esta coleta possui um agendamento marcado, deseja realmente exclui-la?", 
                 icon:"warning",
                 confirmButtonColor: "#045328",
+                cancelButtonColor: "#9319CC"
               }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
+                if (result.isConfirmed) {              
                     atualizarStatusAnuncio();
                     api.delete("coleta/" + props.idColeta).then( (responseStatus:any) => {
+                        enviarMensagemDoador();
                         Swal.fire("Sucesso!", "Coleta Excluida com sucesso", "success");
                         setTimeout(() => {
                             navigate(0);
@@ -56,12 +59,8 @@ export default function Card(props: any) {
                         console.log(error)
                     })
                   
-                } else if (result.isDenied) {
-                  Swal.fire("Coleta Não foi Excluida", "", "info");
                 }
               });;
-              
-        
     }
 
     function atualizarStatusAnuncio(){
@@ -70,6 +69,23 @@ export default function Card(props: any) {
        }).catch( (error:any) => {
            console.log(error)
        })
+    }
+
+    function enviarMensagemDoador() {
+        var templateParams = {
+            nome_doador: props.conteudoCardOwner,
+            email_doador: props.emailDoador,
+            titulo_anuncio: props.tituloCard
+        };
+
+          //Funcao para enviar o EmaiJS passando o Serviço, nomeTemplate, parametros e chavePublica
+        emailjs.send('service_ij46dkp', 'template_del_Coleta', templateParams, 'I9b-AeCTcEslzZW7N')
+        .then(function(response) {
+             console.log('SUCCESS!', response.status, response.text);
+          }, function(error) {
+             console.log('FAILED...', error);
+        });
+
     }
 
     return (

@@ -4,6 +4,7 @@ import ico_delete from '../../assets/img/ico_delete.svg'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import ModalConfirmarDoacao from '../ModalConfirmarDoacao';
+import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 import api from '../../utils/api';
 
@@ -25,9 +26,7 @@ function CardDoador(props: any) {
         }
         Swal.fire({
             title: "Atenção!",
-            // showDenyButton: true,
             showDenyButton: false,
-            // denyButtonText: `Não Excluir`,
             showCancelButton: true,
             cancelButtonText: "Cancelar",
             confirmButtonText: "Excluir",
@@ -37,8 +36,19 @@ function CardDoador(props: any) {
         }).then((result) => {
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
-                // deletarProdutosAnuncio();
                 api.delete("anuncio/" + props.idAnuncio).then((responseStatus: any) => {
+                    if(props.status == "Coleta Agendada") {
+                        api.get("coleta").then((responseColeta: any) => {
+                            responseColeta.data.forEach((item:any):any => {   
+                                if(item.anuncio.id == props.idAnuncio){
+                                    enviarMensagemColetor(item.usuario_coleta.nome, item.usuario_coleta.email);
+                                }     
+                            });
+                            
+                        }).catch((error: any) => {
+                            console.log(error)
+                        })
+                    }
                     Swal.fire("Sucesso!", "Anuncio Excluido com sucesso", "success");
                     setTimeout(() => {
                         navigate(0);
@@ -56,24 +66,22 @@ function CardDoador(props: any) {
 
     }
 
-    // function deletarProdutosAnuncio() {
-    //     api.get("/produto").then((resListaProduto: any)=>{
-    //         let listaProdutos:any = []
-    //         listaProdutos = resListaProduto.data
-    //         listaProdutos.forEach((produto :any) => {
-    //             if(produto.anuncio.id == props.idAnuncio){
-    //                 api.delete("produto/" + produto.id).then( (responseStatus:any) => {
+    function enviarMensagemColetor(_nomeColetor:string, _emailColetor:string) {
+        var templateParams = {
+            nome_coletor: _nomeColetor,
+            email_coletor: _emailColetor,
+            titulo_anuncio: props.title
+        };
 
-    //                 }).catch( (error:any) => {
-    //                     console.log(error)
-    //                 })
-    //             }
-    //         });
+          //Funcao para enviar o EmaiJS passando o Serviço, nomeTemplate, parametros e chavePublica
+        emailjs.send('service_ij46dkp', 'template_del_Anuncio', templateParams, 'I9b-AeCTcEslzZW7N')
+        .then(function(response) {
+             console.log('SUCCESS!', response.status, response.text);
+          }, function(error) {
+             console.log('FAILED...', error);
+        });
 
-
-    //     })
-
-    // }
+    }
 
     function FormataStringData(data: string): string {
         //formata a data do MYSQL -> (1900-12-25) para (25/12/1900)
