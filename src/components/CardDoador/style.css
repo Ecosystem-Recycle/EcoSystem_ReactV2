@@ -125,4 +125,12 @@
     border: none;
     background-color: white;
     cursor: pointer;
+    transition: 0.35s;
+}
+
+#mainDoacoesFinalizadas #cardDoador .iconesCards button:hover,
+#mainMinhasDoacoes #cardDoador .iconesCards button:hover,
+#mainMinhasDoacoes #cardDoador .iconesCards button:focus,
+#mainMinhasDoacoes #cardDoador .iconesCards button:focus {
+    transform: scale(1.1);
 }

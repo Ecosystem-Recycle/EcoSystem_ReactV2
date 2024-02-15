@@ -165,8 +165,8 @@
 
 }
 
-#agendarColeta .btnAgendar button:hover
-{
+#agendarColeta .btnAgendar button:hover,
+#agendarColeta .btnAgendar button:focus{
     transform: scale(1.07);
     background-color: var(--roxo);
     color: white;

@@ -8,18 +8,19 @@
     justify-content: center;
 }
 
-.telaContato {
+#mainContato .telaContato {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 55%;
     height: 90%;
-    border-radius: 20px;
-    background-color: rgba(217, 217, 217, 0.5);
+    border: 1px solid var(--cinza);
+    border-radius: 7px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.telaContato>h2 {
+#mainContato .telaContato>h2 {
     font-family: var(--font1);
     text-transform: uppercase;
     font-size: 23px;
@@ -28,7 +29,53 @@
     border: #000;
 }
 
-.telaContato>a {
+#mainContato form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#mainContato #idContatoFormulario{
+    width: 95%;
+    display: flex;
+    gap: 1rem;
+}
+
+#mainContato .formulario{
+    width: 100%;
+}
+
+#mainContato .campo-form{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#mainContato .campo-form:last-child{
+    margin-bottom: -2px;
+}
+
+#mainContato input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid var(--cinza);
+    border-radius: 7px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding-left: 9px;
+    font-family: var(--font2);
+}
+
+#mainContato textarea{
+    width: 100%;
+    border: 1px solid var(--cinza);
+    border-radius: 7px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    padding-left: 9px;
+    padding-top: 5px;
+    margin-top: 15px;
+}
+
+#mainContato .telaContato>a {
     text-transform: uppercase;
     font-family: var(--font2);
     font-size: 13px;
@@ -39,50 +86,21 @@
     margin-bottom: 30px;
 }
 
-.cardContato {
+#mainContato .cardContato {
     width: 100%;
-    height: 320px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-top: 25px;
     margin-bottom: 25px;
-    margin-top: 80px;
-    margin-bottom: 100px;
 }
 
-.cardContato>form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 40%;
-    height: 100%;
-}
-
-.cardContato>form>textarea {
-    width: 100%;
-    height: 45px;
-    font-size: 15px;
-    font-family: var(--font2);
-    text-indent: 10px;
-    padding-top: 10px;
-    border: 2px solid #d9d9d9;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-
-.cardContato>form>textarea:nth-child(4) {
-    height: 130px;
-}
-
-.mensagemContato {
+#mainContato .mensagemContato {
     background-color: white;
-    border: 2px solid #d9d9d9;
-    border-radius: 10px;
-    box-shadow: 3px 7px 10px 0px rgba(0, 0, 0, 0.25);
-    width: 40%;
+    border: 1px solid var(--cinza);
+    border-radius: 7px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -90,18 +108,14 @@
     align-items: center;
 }
 
-.mensagemContato>p {
-    width: 90%;
+#mainContato .mensagemContato>p {
+    width: 95%;
     margin-top: 40px;
     font-family: var(--font2);
     font-size: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    align-self: center;
 }
 
-.contatos {
+#mainContato .contatos {
     font-family: var(--font2);
     font-size: 15px;
     width: 80%;
@@ -110,12 +124,12 @@
 
 }
 
-.email {
+#mainContato .email {
     justify-content: flex-start;
 
 }
 
-.email>img {
+#mainContato .email>img {
     width: 27px;
     height: 19px;
     background-color: #000;
@@ -123,77 +137,88 @@
     margin-right: 15px;
 }
 
-.whats {
+#mainContato .whats {
     justify-content: flex-start;
     margin-top: 10px;
     margin-bottom: 5px;
 }
 
-.whats>img {
+#mainContato .whats>img {
     width: 22px;
     height: 20px;
     background-color: #000;
     margin-right: 19px;
 }
 
-/* Responsividade da página */
-
-@media screen and (max-width: 1640px) {
-    .cardContato>form {
-        width: 45%;
-    }
-
-    .mensagemContato {
-        width: 45%;
-    }
+#mainContato button{
+    border: 4px solid var(--roxo);
+    color: var(--roxo);
+    background-color:white;
+    border-radius: 15px;
+    padding: 1px 30px;
+    font-family: var(--font1);
+    font-size: 14px;
+    font-weight: 800;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    transition: .35s;
+    margin: 30px 0;
 }
 
+#mainContato button:hover,
+#mainContato button:hover
+{
+    transform: scale(1.07);
+    background-color: var(--roxo);
+    color: white;
+}
+
+/* Responsividade da página */
+
+
 @media screen and (max-width: 1506px) {
-    .mensagemContato>p {
+    #mainContato .mensagemContato>p {
         font-size: 14px;
     }
 
-    .contatos {
+    #mainContato .contatos {
         font-size: 14px;
     }
 }
 
 @media screen and (max-width: 1348px) {
-    .telaContato {
+    #mainContato .telaContato {
         width: 65%;
     }
 }
 
 @media screen and (max-width: 1140px) {
-    .telaContato {
+    #mainContato .telaContato {
         width: 70%;
     }
 }
 
 @media screen and (max-width: 1058px) {
-    .telaContato {
+    #mainContato .telaContato {
         width: 75%;
     }
 }
 
 @media screen and (max-width: 988px) {
-    .telaContato {
+    #mainContato .telaContato {
         width: 80%;
     }
 }
 
 @media screen and (max-width: 926px) {
-    .telaContato {
+    #mainContato .telaContato {
         width: 85%;
     }
 }
 
 
 @media screen and (max-width: 872px) {
-    #mainContato section {
-        height: fit-content;
-    }
-
     #mainContato .telaContato {
         width: 90%;
         margin: 35px 0;
@@ -204,23 +229,11 @@
         margin: 0;
     }
 
-    #mainContato .cardContato {
-        flex-direction: column-reverse;
-        height: auto;
-        margin: 0;
-        padding: 0;
-    }
+
 
     #mainContato .mensagemContato {
-        margin: 20px 0 40px 0;
-        height: 300px;
-        width: 345px;
-    }
-
-    #idContatoFormulario {
-        height: 300px;
-        width: 345px;
-        margin: 20px 0;
+        height: 100%;
+        width: 100%;
     }
 
     #mainContato .telaContato>a {
@@ -228,23 +241,47 @@
     }
 }
 
-@media screen and (max-width: 400px) {
-    .mensagemContato {
+@media screen and (max-width: 680px) {
+    
+    #mainContato #idContatoFormulario {
+        flex-direction: column-reverse
+    }
+
+    #mainContato .mensagemContato {
+        width: 90%;
+        margin-bottom: 60px;
+    }
+
+    #mainContato .formulario {
         width: 90%;
     }
 
-    .mensagemContato>p {
+    #mainContato #idContatoFormulario{
+        gap: 0;
+    }
+
+    #mainContato #idContatoFormulario{
+        gap: 0;
+    }
+
+    
+}
+
+@media screen and (max-width: 400px) {
+  
+
+    #mainContato .mensagemContato>p {
         width: 225px;
         align-self: flex-start;
         margin-left: 20px;
     }
 
-    .adress>p:nth-child(2) {
+    #mainContato .adress>p:nth-child(2) {
         width: 212px;
 
     }
 
-    #idContatoFormulario {
+    #mainContato #idContatoFormulario {
         width: 90%;
     }
 }

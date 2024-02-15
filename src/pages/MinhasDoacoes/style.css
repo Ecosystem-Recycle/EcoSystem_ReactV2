@@ -60,11 +60,12 @@
     color: var(--verde2);
 }
 
-#mainMinhasDoacoes .links_pags a:nth-child(3):hover{
+#mainMinhasDoacoes .links_pags a:nth-child(3):hover,
+#mainMinhasDoacoes .links_pags a:nth-child(3):focus{
     border: 1px solid var(--roxo);
     background-color: var(--roxo);
     color: white;
-    transform: scale(0.5);
+    transform: scale(0.9);
 }
 
 #mainMinhasDoacoes .historic_cards {

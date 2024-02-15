@@ -27,14 +27,16 @@
     color: var(--cinza);
 }
 
-#cardColetaSeletor .contornoBase1:hover{
+#cardColetaSeletor .contornoBase1:hover,
+#cardColetaSeletor .contornoBase1:focus{
     border: 1px solid var(--verde2);
     background-color: var(--verde2);
     color: white;
     transform: scale(0.5);
 }
 
-#cardColetaSeletor .contornoBase2:hover{
+#cardColetaSeletor .contornoBase2:hover,
+#cardColetaSeletor .contornoBase2:focus{
     border: 1px solid var(--roxo);
     background-color: var(--roxo);
     color: white;
