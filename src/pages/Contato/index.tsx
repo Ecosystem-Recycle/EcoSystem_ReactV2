@@ -33,50 +33,96 @@ function Contato() {
     }
 
     return (
-        <>
             <main id='mainContato'>
                 <h1>página Contato ecosystem &amp; recycle</h1>
                 <section>
                     <div className=" telaContato wrapper">
                         <h2>contato</h2>
                         <form ref={form} onSubmit={ sendEmail }>
-                        <div id='idContatoFormulario' className="cardContato flex">
-                            
-                                <textarea name='nome_usuario' placeholder="Nome Completo" defaultValue={""} />
-                                <textarea name='email_usuario' placeholder="E-mail" defaultValue={""} />
-                                <textarea name='tel_usuario'placeholder="Telefone" defaultValue={""} />
-                                <textarea name="message" placeholder="Assunto" defaultValue={""} />
-                            
-                            <div className="mensagemContato">
-                                <p>
-                                    Preencha o formulário ao lado para entrar em contato com a ECO
-                                    SYSTEM &amp; RECYCLE!
-                                </p>
-                                <div className="contatos">
-                                    <div className="email flex">
-                                        <img src={iconeEmail} alt="" />
-                                        <p>contato@ecosystemrecycle.com.br</p>
+                            <div id='idContatoFormulario' className="cardContato flex">
+
+                                <div className="formulario">
+                                    <div className="campo-form">
+                                        {/* <label htmlFor="nome_usuario">Nome Completo:</label> */}
+                                        <input
+                                        // value={nome}
+                                        type="text"
+                                        name="nome_usuario"
+                                        id="nome_usuario"
+                                        placeholder="Digite seu nome completo..."
+                                        required
+                                        // onChange={(event) => setNome(event.target.value)}
+                                        />
                                     </div>
-                                    <div className="whats flex">
-                                        <img src= {iconeWhatsApp} alt="" />
-                                        <p>(11) 99999-9999</p>
+                                    <div className="campo-form">
+                                        {/* <label htmlFor="email_usuario">Email:</label> */}
+                                        <input
+                                        // value={nome}
+                                        type="text"
+                                        name="email_usuario"
+                                        id="email_usuario"
+                                        placeholder="Email..."
+                                        required
+                                        // onChange={(event) => setNome(event.target.value)}
+                                        />
                                     </div>
-                                    <div className="adress">
-                                        <p>R. Niterói, 180 - Centro</p>
-                                        <p>São Caetano do Sul - SP, 09510-200</p>
+                                    <div className="campo-form">
+                                        {/* <label htmlFor="tel_usuario">Telefone:</label> */}
+                                        <input
+                                        // value={nome}
+                                        type="text"
+                                        name="tel_usuario"
+                                        id="tel_usuario"
+                                        placeholder="Telefone..."
+                                        required
+                                        // onChange={(event) => setNome(event.target.value)}
+                                        />
+                                    </div>
+                                    <div className="campo-form">
+                                        {/* <label htmlFor="message">Assunto:</label> */}
+                                        <textarea
+                                        // value={nome}
+                                        rows={10}
+                                        name="message"
+                                        id="message"
+                                        placeholder="Assunto..."
+                                        required
+                                        // onChange={(event) => setNome(event.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                                
+                                    {/* <textarea name='nome_usuario' placeholder="Nome Completo" defaultValue={""} /> */}
+                                    {/* <textarea name='email_usuario' placeholder="E-mail" defaultValue={""} /> */}
+                                    {/* <textarea name='tel_usuario'placeholder="Telefone" defaultValue={""} /> */}
+                                    {/* <textarea name="message" placeholder="Assunto" defaultValue={""} /> */}
+                                
+                                <div className="mensagemContato">
+                                    <p>
+                                        Preencha o formulário ao lado para entrar em contato com a ECO
+                                        SYSTEM &amp; RECYCLE!
+                                    </p>
+                                    <div className="contatos">
+                                        <div className="email flex">
+                                            <img src={iconeEmail} alt="" />
+                                            <p>ecosytemrecycle@gmail.com</p>
+                                        </div>
+                                        <div className="whats flex">
+                                            <img src= {iconeWhatsApp} alt="" />
+                                            <p>(11) 99999-9999</p>
+                                        </div>
+                                        <div className="adress">
+                                            <p>R. Niterói, 180 - Centro</p>
+                                            <p>São Caetano do Sul - SP, 09510-200</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {/* <a href="#">Enviar</a> */}
-                        {/* <Link to="/contato" onClick={ msgFormularioContato }>Enviar</Link> */}
-                        <button type="submit">Enviar</button>
+                            <button type="submit">Enviar</button>
                         </form>
                     </div>
                 </section>
             </main>
-
-        </>
     )
 }
 
