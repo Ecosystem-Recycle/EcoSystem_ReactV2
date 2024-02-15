@@ -2,7 +2,7 @@ import './style.css'
 
 import api from "../../utils/api"
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef, Dispatch, SetStateAction, ChangeEvent } from 'react'
 import Swal from 'sweetalert2'
 import emailjs from '@emailjs/browser';
 import secureLocalStorage from 'react-secure-storage'
@@ -47,6 +47,35 @@ function QueroDoarParte1() {
     carregarProduto();
   }, [userId])
 
+  let expanded = true;
+
+  function mostrarCheckbox() {
+
+    let checkboxes = document.getElementById('checkboxes') as HTMLElement;
+    if (!expanded) {
+      checkboxes.style.display = "block";
+      expanded = true;
+    } else {
+      checkboxes.style.display = "none";
+      expanded = false;
+      checarDias()
+    }
+  }
+  // const [dai, setDai] = useState<any>({})
+
+  function checarDias() {
+    const diasCheck = valoresInput2.disponibilidade
+    console.log(diasCheck)
+    // setDai(days)
+
+  }
+
+  function selecionarCheckbox(id: string): void {
+    const checkbox: HTMLInputElement | null = document.getElementById(id) as HTMLInputElement;
+    if (checkbox) {
+      checkbox.checked = !checkbox.checked;
+    }
+  }
 
   //Verificar o tipo de arquivo da Imagem
   function verificarCampoUpload(event: any) {
@@ -88,56 +117,67 @@ function QueroDoarParte1() {
       return
     }
 
-    let validadorCadastro = true;
 
-    Object.values(userId).forEach((valor) => {
-      if(valor == null || valor == undefined) {
-        console.log("complete o cadastro")
-        validadorCadastro = false
-      }
-    })
+    async function validarCadastro() {
+      let validadorCadastro = true;
+      Object.values(userId).forEach((valor) => {
+        if (valor == null || valor == undefined) {
+          validadorCadastro = false
+        }
+      });
 
-    if(!validadorCadastro) {
-      alert("complete cadastro")
-      navigate("/editarperfildoador")
-      return
-    }
-
-    if (userId.id != null || userId.id != undefined) {
-
-      const formData = new FormData();
-
-      formData.append("titulo", valoresInput2.titulo)
-      formData.append("disponibilidade", valoresInput2.disponibilidade)
-      formData.append("periodo", valoresInput2.periodo)
-      formData.append("usuario_id", userId.id);
-      formData.append("tipo_status", "Aguardando Agendamento");
-      if (foto) {
-        formData.append("imagem", foto);
+      if (!validadorCadastro) {
+        await Swal.fire({
+          title: "Atenção!",
+          text: "Por favor, complete o cadastro antes de continuar",
+          icon: "warning"
+        });
+        navigate("/editarperfildoador")
+        return
       }
 
-      api.post("anuncio", formData).then((responseAnuncio: any) => {
-        var templateParams = {
-          email_usuario: userId.email,
-          titulo_anuncio: valoresInput2.titulo,
-          nome_usuario: userId.nome
-        };
+      if (userId.id != null || userId.id != undefined) {
 
-        emailjs.send('service_sot9b9w', 'template_newAnuncio', templateParams, 'NvrSMkZ1YOmgWkIBm')
-          .then(function (response) {
-            console.log('SUCCESS!', response.status, response.text);
-          }, function (error) {
-            console.log('FAILED...', error);
-          });
-        salvarProduto(responseAnuncio.data.id)
+        const formData = new FormData();
 
-      }).catch((error: any) => {
-        console.log(error)
-      })
-    } else {
-      alert('ID não encontrado')
-      return
+        formData.append("titulo", valoresInput2.titulo)
+        formData.append("disponibilidade", valoresInput2.disponibilidade)
+        formData.append("periodo", valoresInput2.periodo)
+        formData.append("usuario_id", userId.id);
+        formData.append("tipo_status", "Aguardando Agendamento");
+        if (foto) {
+          formData.append("imagem", foto);
+        }
+        else if (foto == null) {
+          alert("por favor, adicione uma foto")
+          return
+        }
+
+        api.post("anuncio", formData).then((responseAnuncio: any) => {
+          var templateParams = {
+            email_usuario: userId.email,
+            titulo_anuncio: valoresInput2.titulo,
+            nome_usuario: userId.nome
+          };
+
+          emailjs.send('service_sot9b9w', 'template_newAnuncio', templateParams, 'NvrSMkZ1YOmgWkIBm')
+            .then(function (response) {
+              console.log('SUCCESS!', response.status, response.text);
+            }, function (error) {
+              console.log('FAILED...', error);
+            });
+          salvarProduto(responseAnuncio.data.id)
+
+        }).catch((error: any) => {
+          console.log(error)
+        })
+      } else {
+        alert('ID não encontrado')
+        return
+      }
     }
+
+    validarCadastro()
 
   }
 
@@ -353,21 +393,85 @@ function QueroDoarParte1() {
                             onChange={(event) => setValoresInput2({ ...valoresInput2, titulo: event.target.value })}
                           />
                         </div>
+
+
                         <div className="camposDuplo">
                           <div className="campo-form">
                             <label htmlFor="horarioDisponivel">Data de retirada:</label>
-                            <select
-                              id='horarioDisponivel'
-                              name='horarioDisponivel'
-                              value={valoresInput2.disponibilidade}
-                              required
-                              onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.value}) }
-                            >
-                              <option disabled value="">Selecione:</option>
-                              <option value="segunda">Segunda</option>
-                              <option value="terca">Terça</option>
 
-                            </select>
+                            <div className='selectBox' onClick={mostrarCheckbox}>
+
+                              <select>
+                                <option>Selecione</option>
+                              </select>
+
+                              {/* {
+                                <select>
+                                dai.map((valor: string, index: number) => (
+                                  <option key={index}>{valor}</option>
+                                ))
+                                  </select>
+                              } */}
+                              <div className='overSelect'></div>
+                            </div>
+                            <div id='checkboxes'>
+                              <label htmlFor="segunda" onClick={() => selecionarCheckbox('segunda')}>
+                                <input
+                                  type="checkbox"
+                                  id='segunda'
+                                  value="segunda"
+                                  onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.checked ? [...valoresInput2.disponibilidade, event.target.value] : valoresInput2.disponibilidade.filter((item: string) => item !== event.target.value) })}
+                                />Segunda</label>
+
+                              <label htmlFor="terca" onClick={() => selecionarCheckbox('terca')}>
+                                <input
+                                  type="checkbox"
+                                  id="terca"
+                                  value="terca"
+                                  onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.checked ? [...valoresInput2.disponibilidade, event.target.value] : valoresInput2.disponibilidade.filter((item: string) => item !== event.target.value) })}
+                                />Terça</label>
+
+                              <label htmlFor="quarta" onClick={() => selecionarCheckbox('quarta')}>
+                                <input
+                                  type="checkbox"
+                                  id="quarta"
+                                  value="quarta"
+                                  onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.checked ? [...valoresInput2.disponibilidade, event.target.value] : valoresInput2.disponibilidade.filter((item: string) => item !== event.target.value) })}
+                                />Quarta</label>
+
+                              <label htmlFor="quinta" onClick={() => selecionarCheckbox('quinta')}>
+                                <input
+                                  type="checkbox"
+                                  id='quinta'
+                                  value="quinta"
+                                  onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.checked ? [...valoresInput2.disponibilidade, event.target.value] : valoresInput2.disponibilidade.filter((item: string) => item !== event.target.value) })}
+                                />Quinta</label>
+
+                              <label htmlFor="sexta"
+                                onClick={() => selecionarCheckbox('sexta')}>
+                                <input type="checkbox"
+                                  id='sexta'
+                                  value="sexta"
+                                  onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.checked ? [...valoresInput2.disponibilidade, event.target.value] : valoresInput2.disponibilidade.filter((item: string) => item !== event.target.value) })}
+                                />Sexta</label>
+
+                              <label htmlFor="sabado"
+                                onClick={() => selecionarCheckbox('sabado')}>
+                                <input type="checkbox"
+                                  id='sabado'
+                                  value="sabado"
+                                  onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.checked ? [...valoresInput2.disponibilidade, event.target.value] : valoresInput2.disponibilidade.filter((item: string) => item !== event.target.value) })}
+                                />sabado</label>
+
+                              <label htmlFor="domingo"
+                                onClick={() => selecionarCheckbox('domingo')}>
+                                <input type="checkbox"
+                                  id='domingo'
+                                  value="domingo"
+                                  onChange={(event) => setValoresInput2({ ...valoresInput2, disponibilidade: event.target.checked ? [...valoresInput2.disponibilidade, event.target.value] : valoresInput2.disponibilidade.filter((item: string) => item !== event.target.value) })}
+                                />Domingo</label>
+                            </div>
+
                           </div>
                           <div className="campo-form">
                             <label htmlFor="selectPeriodo">Período:</label>
@@ -390,8 +494,6 @@ function QueroDoarParte1() {
                           </div>
                         </div>
                         <div className="arquivos">
-
-
                           <div className="adicionarFotos">
                             <div>
                               {

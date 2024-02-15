@@ -22,18 +22,18 @@ function AgendarColeta() {
     const [data, setData] = useState<string>("")
     const [horario, setHorario] = useState<string>("")
 
-    useEffect( () => {
+    useEffect(() => {
         document.title = "Agendar Coleta - Ecosystem e Recycle"
-        if(produtosAnuncio.length==0){
+        if (produtosAnuncio.length == 0) {
             carregarProdutos()
-            
+
         }
 
-    }, [] )
+    }, [])
 
     useEffect(() => {
         console.log(anuncioInfo)
-      }, [produtosAnuncio]); 
+    }, [produtosAnuncio]);
 
     function cadastroAgendamento(event: any) {
         event.preventDefault()
@@ -45,36 +45,36 @@ function AgendarColeta() {
         formData.append("anuncio_id", anuncioInfo.id)
         formData.append("usuario_id", userId.id)
 
-        api.post("coleta/media", formData).then( (responseAnuncio:any) => {
-                
-                atualizarStatusAnuncio(anuncioInfo.id)
-                //Função de Enviar Email com os parâmetros de dados do anuncio
-                enviarEmail(
-                    anuncioInfo.usuario_doador.nome,
-                    anuncioInfo.usuario_doador.email,
-                    anuncioInfo.titulo,
-                    data,
-                    anuncioInfo.periodo,
-                    anuncioInfo.usuario_doador.telefone.substr(anuncioInfo.usuario_doador.telefone.length - 4)
-                )
+        api.post("coleta/media", formData).then((responseAnuncio: any) => {
 
-                
-                Swal.fire("Sucesso!", "Coleta Agendada com Sucesso", "success");
-                setTimeout(() => {
-                    navigate("/coletasagendadas");
-                    navigate(0);
-                    secureLocalStorage.removeItem("anuncioInfo")
-                }, 3000);
-               
-             
-                
+            atualizarStatusAnuncio(anuncioInfo.id)
+            //Função de Enviar Email com os parâmetros de dados do anuncio
+            enviarEmail(
+                anuncioInfo.usuario_doador.nome,
+                anuncioInfo.usuario_doador.email,
+                anuncioInfo.titulo,
+                data,
+                anuncioInfo.periodo,
+                anuncioInfo.usuario_doador.telefone.substr(anuncioInfo.usuario_doador.telefone.length - 4)
+            )
 
-           }).catch( (error:any) => {
-               console.log(error)
-           })
+
+            Swal.fire("Sucesso!", "Coleta Agendada com Sucesso", "success");
+            setTimeout(() => {
+                navigate("/coletasagendadas");
+                navigate(0);
+                secureLocalStorage.removeItem("anuncioInfo")
+            }, 3000);
+
+
+
+
+        }).catch((error: any) => {
+            console.log(error)
+        })
     }
 
-    function enviarEmail(_nomeDoador:string, _emailDoador:string, _tituloAnuncio:string,_dataAnuncio:string,_periodoAnuncio:string,_codDoador:string){
+    function enviarEmail(_nomeDoador: string, _emailDoador: string, _tituloAnuncio: string, _dataAnuncio: string, _periodoAnuncio: string, _codDoador: string) {
         //Objeto com as variáveis do template de Email
         var templateParams = {
             nome_doador: _nomeDoador,
@@ -85,33 +85,33 @@ function AgendarColeta() {
             nome_coletor: userId.nome,
             email_coletor: userId.email,
             seguranca_codigo: _codDoador
-          };
+        };
         //Funcao para enviar o EmaiJS passando o Serviço, nomeTemplate, parametros e chavePublica
         emailjs.send('service_0en0u75', 'template_nova_coleta', templateParams, 'YZMWXN82GCbwyOvsW')
-        .then(function(response) {
-             console.log('SUCCESS!', response.status, response.text);
-          }, function(error) {
-             console.log('FAILED...', error);
-        });
+            .then(function (response) {
+                console.log('SUCCESS!', response.status, response.text);
+            }, function (error) {
+                console.log('FAILED...', error);
+            });
     }
 
-    function atualizarStatusAnuncio(id: string){
+    function atualizarStatusAnuncio(id: string) {
         const atualizarStatus: { tipo_status: string } = { tipo_status: "Coleta Agendada" }
-        api.patch("anuncio/status/" + id, atualizarStatus).then( (responseStatus:any) => {
-       }).catch( (error:any) => {
-           console.log(error)
-       })
+        api.patch("anuncio/status/" + id, atualizarStatus).then((responseStatus: any) => {
+        }).catch((error: any) => {
+            console.log(error)
+        })
     }
 
 
-    function carregarProdutos(){
-        api.get("/produto").then((resListaProduto: any)=>{
-            let listaProdutos:any = []
-            
-            resListaProduto.data.forEach((item:any):any => {   
-                if(item.anuncio.id === anuncioInfo.id){
-                    if(typeof item != 'undefined'){
-                        listaProdutos.push(item)      
+    function carregarProdutos() {
+        api.get("/produto").then((resListaProduto: any) => {
+            let listaProdutos: any = []
+
+            resListaProduto.data.forEach((item: any): any => {
+                if (item.anuncio.id === anuncioInfo.id) {
+                    if (typeof item != 'undefined') {
+                        listaProdutos.push(item)
                     }
                 }
 
@@ -120,81 +120,81 @@ function AgendarColeta() {
         })
     }
 
-    function somarProdutos(anuncio:any):number{
-        let soma = 0; 
+    function somarProdutos(anuncio: any): number {
+        let soma = 0;
 
-            for(var i =0;i<anuncio.length;i++){ 
-                soma+=anuncio[i].quantidade; 
-            } 
-          return soma;
+        for (var i = 0; i < anuncio.length; i++) {
+            soma += anuncio[i].quantidade;
+        }
+        return soma;
     }
-    
+
 
     return (
         <main id='agendarColeta'>
             <h1>página agendar coleta ecosystem &amp; recycle</h1>
             <section>
                 <div className="conteudo_doacoes wrapper">
-                    <Aside idSeletor={2}/>
+                    <Aside idSeletor={2} />
                     <div id='idConteudoPublicacoes' className="conteudoPublicacoes">
                         <div className="headerPublicacoes">
                             <h2>Agendar Coleta</h2>
                             <p>Agende aqui a sua retirada do material</p>
                         </div>
-                        <div  id="containerCard"   className="containerCard">
+                        <div id="containerCard" className="containerCard">
 
                             < CardAgendarColeta
                                 titulo={anuncioInfo.titulo}
-                                imagem={ anuncioInfo.url_imagem }
-                                dataPublicacao={ anuncioInfo.data_cadastro }
+                                imagem={anuncioInfo.url_imagem}
+                                dataPublicacao={anuncioInfo.data_cadastro}
                                 quantidadeItem={somarProdutos(produtosAnuncio)}
-                                descricoes={ produtosAnuncio }
+                                descricoes={produtosAnuncio}
                                 logradouro={anuncioInfo.usuario_doador.endereco.logradouro}
                                 numero={anuncioInfo.usuario_doador.endereco.numero}
                                 cidade={anuncioInfo.usuario_doador.endereco.cidade}
                                 estado={anuncioInfo.usuario_doador.endereco.estado}
                                 cep={anuncioInfo.usuario_doador.endereco.cep}
-                                disponibilidade={ anuncioInfo.disponibilidade }
+                                disponibilidade={anuncioInfo.disponibilidade}
                                 periodo={anuncioInfo.periodo}
                             />
                             <div className="form_text">
                                 <h3>Agendar Retirada</h3>
                             </div>
-                                <form onSubmit={ cadastroAgendamento } className="cardBottom">
-                                    <div className="cardBottomPt1">
-                                        <div className="campo-form">
-                                            <label htmlFor='data'>Data:</label>
-                                            <input
-                                                defaultValue={""}
-                                                type="text"
-                                                name='data'
-                                                id="data"
-                                                onChange={(event) => {setData(event.target.value) } }
-                                                required
-                                            />
-                                        </div>
-                                        <div className="campo-form">
-                                            <label htmlFor='periodo'>Período:</label>
-                                            <input
-                                                type="text"
-                                                name='periodo'
-                                                id='periodo'
-                                                value={ anuncioInfo.periodo }
-                                                onChange={(event) => { setHorario(event.target.value) } }
-                                                required
-                                                disabled
-                                            />
-                                        </div>
+                            <form onSubmit={cadastroAgendamento} className="cardBottom">
+                                <div className="cardBottomPt1">
+                                    <div className="campo-form">
+                                        <label htmlFor='data'>Data:</label>
+                                        <input
+                                            defaultValue={""}
+                                            type="text"
+                                            name='data'
+                                            id="data"
+                                            onChange={(event) => { setData(event.target.value) }}
+                                            required
+                                        />
                                     </div>
-                                    <div className='btnAgendar'>
-                                        <button  type="submit">
-                                            Agendar
-                                        </button>
+                                    <div className="campo-form">
+                                        <label htmlFor='periodo'>Período:</label>
+                                        <input
+                                            type="text"
+                                            name='periodo'
+                                            id='periodo'
+                                            value={anuncioInfo.periodo}
+                                            onChange={(event) => { setHorario(event.target.value) }}
+                                            required
+                                            disabled
+                                        />
                                     </div>
-                                </form>
-                                <div className='nextStep'>
                                 </div>
-                            
+                                <div className='btnAgendar'>
+                                    <button type="submit">
+                                        Agendar
+                                    </button>
+                                </div>
+                            </form>
+                            <div className='nextStep'>
+                            </div>
+
                         </div>
                     </div>
                 </div>
