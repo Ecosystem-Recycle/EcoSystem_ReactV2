@@ -1,4 +1,4 @@
-import './style.css'
+  import './style.css'
 import lixoEletronicoServicos from "../../assets/img/lixoEletronicoServiços.jpeg"
 import simboloLogisticaReversa from "../../assets/img/simboloLogisticaReversa.svg"
 
@@ -26,7 +26,7 @@ function Servicos(){
                 alt="Simbolo da Logística reversa"
               />
             </div>
-            <div>
+            {/* <div>
               <p className="subtitulo1">
                 Coleta e Localização de Pontos para Descarte
               </p>
@@ -40,7 +40,7 @@ function Servicos(){
                 o Localizados de Postos de Descarte irá te auxiliar na localização de
                 um ponto mais próximo da sua residência ou empresa.
               </p>
-            </div>
+            </div> */}
             <div>
               <p className="subtitulo2">Reciclagem</p>
               <p className="texto2">
