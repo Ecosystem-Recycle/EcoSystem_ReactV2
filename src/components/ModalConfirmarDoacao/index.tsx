@@ -21,7 +21,15 @@ function ModalConfirmarDoacao(props:any) {
 
   useEffect( () => {
       buscarPublicacoes()
+      const focusTitle:any = document.getElementById('titulo');
+      focusTitle.focus();
 }, [] )
+
+document.onkeydown = function(e) {
+  if(e.key === 'Escape') {
+    props.onClose();
+  }
+}
 
 useEffect(() => {
     console.log(coletaLista)
@@ -52,17 +60,22 @@ useEffect(() => {
             <button 
               type='button'
               onClick={ props.onClose }
+              tabIndex={0}
             >
             <img
                 src={ico_fechar}
-                alt="Icone para fechar modal"
+                alt="Icone para fechar modal doação"
             />
             </button>
           </div> 
           <div className="Conteudo_Doacao">
             <div className="dados_doacao1">
               <div className="Title_Img_Donation">
-                <h5>{ props.tituloModal }</h5>
+                <h5
+                  aria-label={'Modal visualizar dados coleta : Pressione Esc para fechar:' + props.tituloModal } 
+                  id="titulo" 
+                  tabIndex={0}
+                >{ props.tituloModal }</h5>
                 <img
                   src={"http://localhost:8090/img/" + props.imagemColeta}
                   alt={"Imagem "+ props.index +" da Galeria de fotos"}

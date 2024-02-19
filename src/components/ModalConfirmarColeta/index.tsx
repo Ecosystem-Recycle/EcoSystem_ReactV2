@@ -6,11 +6,26 @@ import api from '../../utils/api';
 
 import ico_fechar from '../../assets/img/exit.svg'
 import { useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
+import { useEffect } from 'react';
+
+
 
 function ModalConfirmarColeta(props:any) {
-  const ref = useRef(null);
+
+
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const focusTitle:any = document.getElementById('titulo');
+    focusTitle.focus();
+
+  },[])
+
+  document.onkeydown = function(e) {
+    if(e.key === 'Escape') {
+      props.onClose();
+    }
+  }
 
   function FormataStringData(data:string):string {
         //formata a data do MYSQL -> (1900-12-25) para (25/12/1900)
@@ -84,11 +99,12 @@ function atualizarStatusColeta(idColeta: string){
 
   if( props.isOpen ){
     return (
-      <div id='mainModalConfirmarColeta' tabIndex={1} ref={ref} >
+      <div id='mainModalConfirmarColeta'>
         
         <div className="margem_Doacao" >
           <div className='fecharModal'>
             <button 
+              tabIndex={ 2 }
               type='button'
               onClick={ props.onClose }
             >
@@ -101,7 +117,13 @@ function atualizarStatusColeta(idColeta: string){
           <div className="Conteudo_Doacao">
             <div className="dados_doacao1">
               <div className="Title_Img_Donation">
-                <h5>{ props.tituloModal }</h5>
+                <h5 
+                aria-label={'Modal Confirmar Coleta: Pressione Esc para fechar:' + props.tituloModal } 
+                id="titulo" 
+                tabIndex={-1}
+                >
+                  { props.tituloModal }
+                </h5>
                 <img
                   src={"http://localhost:8090/img/" + props.imagemColeta}
                   alt={"Imagem "+ props.index +" da Galeria de fotos"}
@@ -162,6 +184,7 @@ function atualizarStatusColeta(idColeta: string){
               props.status =="Coleta Finalizada" ?
               null
               : <button 
+                  tabIndex={1}
                   type="button"
                   onClick={() => { finalizarColeta( props.codTelefone, props.idAnuncio, props.idColeta ) }}
                 >

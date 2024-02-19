@@ -135,7 +135,7 @@ export default function Card(props: any) {
                         >
                             <img
                                 src={ico_eye}
-                                alt="Icone de visualizar"
+                                alt="Icone de um olho para abrir modal da coleta"
                             />
                         </button>
 
@@ -147,7 +147,7 @@ export default function Card(props: any) {
                             >
                                 <img
                                     src={ico_delete}
-                                    alt="Icone de deletar"
+                                    alt="Icone de lizeira para deletar esta coleta"
                                 />
                             </button>
                         }

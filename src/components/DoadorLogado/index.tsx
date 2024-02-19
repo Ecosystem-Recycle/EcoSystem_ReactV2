@@ -6,25 +6,29 @@ import icoMenuDoador from '../../assets/img/Home_menuDoadorICO.svg'
 import icoVisualizarDoador from '../../assets/img/Home_Vizualizar_menuDoadorICO.svg'
 import icoEditarDoador from '../../assets/img/Home_Edit_menuDoadorICO.svg'
 import imgLogout from '../../assets/img/Home_Logout_menuDoadorICO.svg'
-// import imgNotificacao from '../../assets/img/img_Notification_001.png'
-// import imgNotificacao2 from '../../assets/img/img_Notification_002.png'
 import icoLogado from '../../assets/img/Home_ico_User.svg'
 import icoSetaBaixo from '../../assets/img/Home_ico_setaBaixo.svg'
-// import icoNotificacao from '../../assets/img/Home_ico_notificacao.svg'
 import { Link, useNavigate } from "react-router-dom";
 import secureLocalStorage from 'react-secure-storage'
 import { useEffect, useState } from 'react'
 
 
 function DoadorLogado() {
-
   const navigate = useNavigate()
-
   const [ usuarioLogado, setUsuarioLogado ] = useState<any>()
 
   useEffect(() => {
       verificarUsuarioLogado()
   }, [])
+
+  document.onkeydown = function(e) {
+    if(e.key === 'Escape') {
+      let menu2 = document.getElementById("menu_login2") as HTMLCanvasElement;
+      if (window.getComputedStyle(menu2).display == 'flex'){
+          menu2.style.display = "none";
+      }
+    }
+  }
 
   function verificarUsuarioLogado() {
       if ( secureLocalStorage.getItem("userId") ) {
@@ -55,6 +59,8 @@ function DoadorLogado() {
     if (window.getComputedStyle(menu2).display == 'none') {
       //Mostre o menu
       menu2.style.display = "flex";
+      const focusTitle:any = document.getElementById('link');
+      focusTitle.focus();
     } else {
       //Esconde o menu
       menu2.style.display = "none";
@@ -79,7 +85,7 @@ function DoadorLogado() {
                 </div>
               </div>
               <a href="#" onClick={abrirFechar2}>
-                <img src={imgSair} alt="" />
+                <img src={imgSair} alt="Botão fechar menu de usuário suspenso" />
               </a>
             </div>
           </div>
@@ -87,23 +93,30 @@ function DoadorLogado() {
             <div>
               <div id="menu_login_pt2_Itens">
                 <div>
-                  <img src={icoMenuDoador} alt="" />
-                  <Link to="/querodoarpt1">QUERO DOAR</Link>
+                  
+                  <Link to="/querodoarpt1" id="link" onClick={abrirFechar2}>
+                    <img className='ico1' src={icoMenuDoador} alt="" />
+                    QUERO DOAR
+                  </Link>
                 </div>
                 <div>
-                  <img src={icoVisualizarDoador} alt="" />
-                  <Link to="/minhasdoacoes">MINHAS PUBLICAÇÕES</Link>
-
+                  <Link to="/minhasdoacoes" onClick={abrirFechar2}>
+                    <img src={icoVisualizarDoador} alt="" />
+                    MINHAS PUBLICAÇÕES
+                  </Link>
                 </div>
                 <div>
-                  <img src={icoEditarDoador} alt="" />
-                  <Link to="/editarperfildoador"> EDITAR PERFIL</Link>
+                  <Link to="/editarperfildoador" onClick={abrirFechar2}>
+                    <img src={icoEditarDoador} alt="" />
+                    EDITAR PERFIL
+                  </Link>
                 </div>
               </div>
               <div id="menu_login_pt2_Itens2">
-                <img src={imgLogout} alt="Sair do Sistema" />
-                {/* <Link to="/login" onClick={ logout }>SAIR</Link> */}
-                <p onClick={logout}>SAIR</p>
+                <p  onClick={logout} tabIndex={ 0 }>
+                  <img src={imgLogout} alt="Botão para desconectar-se" />
+                  SAIR
+                </p>
               </div>
             </div>
           </div>
@@ -158,13 +171,13 @@ function DoadorLogado() {
             </section>
           </div>
         </div> */}
-        <a href="#" onClick={abrirFechar2} >
-          <img className="imgLogado" src={icoLogado} alt="Icone de Logado" />
+        <a href="#" aria-label="menu suspenso de usuario logado recolhido" onClick={abrirFechar2} >
+          <img className="imgLogado" src={icoLogado} alt="" />
           <p>{usuarioLogado ? usuarioLogado.nome.split(" ")[0] : ""}</p>
           <img
             id="seta_Baixo"
             src={icoSetaBaixo}
-            alt="Icone de Menu pra baixo"
+            alt=""
           />
         </a>
       </div>

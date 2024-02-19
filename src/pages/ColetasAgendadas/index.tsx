@@ -31,7 +31,6 @@ function AgendarColeta() {
     }, [] )
     
     useEffect(() => {
-        console.log(coletaLista)
       }, [coletaLista]); 
 
 

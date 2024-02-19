@@ -23,8 +23,6 @@ function BuscarPublicacoes() {
     function listarAnuncios() {
         api.get("anuncio")
             .then((responseAnuncio: any) => {
-                console.log(responseAnuncio.data)
-
                 setAnuncios(responseAnuncio.data)
             })
     }
@@ -34,7 +32,6 @@ function BuscarPublicacoes() {
             let listaProdutos:any = []
             listaProdutos = resListaProduto.data
             setProdutos(listaProdutos);
-            console.log(listaProdutos)
         })
     }
 
@@ -52,7 +49,6 @@ function BuscarPublicacoes() {
             }
 
         });
-        console.log(produto);
         return produto;
     }
 
