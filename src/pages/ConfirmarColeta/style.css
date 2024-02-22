@@ -3,6 +3,7 @@
     column-gap: 3rem;
     grid-template-columns: minmax(238px, 0.25fr) 1fr;
     padding: 60px 0;
+    background-color: aqua;
 }
 
 
@@ -190,6 +191,7 @@
 
 @media screen and (max-width: 1072px) {
     #mainConfirmarColeta .conteudo_doacoes {
+        
         column-gap: 0;
     }
 
